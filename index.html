@@ -906,7 +906,7 @@
             
             <div class="faq-item">
                 <div class="faq-question">Q5: How do we communicate?</div>
-                <div class="faq-answer">A: Email, Slack, or quick calls—whatever works best for you. Tasks can be tracked in your preferred system.</div>
+                <div class="faq-answer">A: Email, Slack or quick calls—whatever works best for you. Tasks can be tracked in your preferred system.</div>
             </div>
             
             <div class="faq-item">
@@ -1400,25 +1400,36 @@
                 submitButton.disabled = true;
                 
                 // Send data to Google Apps Script
-                fetch('https://script.google.com/macros/s/AKfycby0oioD1YKSMpB1N0KwlefyaGlICiXjjpqkhcOnhTH4Ba4WhLT2u24d7Dib7UY9gMNsmw/exec', {
+                fetch('https://script.google.com/macros/s/AKfycbykSC0Rhr-bxvOtEmQvpvpqXGjrLVcESLWSBwoxoD8EUbYoa2ECT3LLjSY6JKf3HgbIjg/exec', {
                     method: 'POST',
-                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
+                    'Accept': 'application/json'
+                    // Removed mode: 'no-cors' to be able to read the response
+                    // mode: 'no-cors' prevents reading the response which we need
+                    // The backend needs to handle CORS properly
+                    // If you get CORS errors, you may need to adjust your Google Apps Script
+                },
+                body: JSON.stringify(data)
                 })
-                .then(() => {
-                    // Show success message
-                    showToast('Thank you for your message! I\'ll get back to you soon.', 'success');
-                    contactForm.reset();
-                    
-                    // Log the submission for debugging
-                    console.log('Form submitted successfully:', data);
+                .then(response => {
+                    // Check if the response is OK (status 200-299)
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.result === "success") {
+                        showToast('Thank you for your message! I\'ll get back to you soon.', 'success');
+                        contactForm.reset();
+                    } else {
+                        showToast('There was a problem with your submission: ' + data.message, 'error');
+                    }
                 })
                 .catch(error => {
                     // Show error message
-                    showToast('There was a problem sending your message. Please try again or email me directly.', 'error');
+                    showToast('There was a network error. Please try again or email me directly.', 'error');
                     console.error('Error:', error);
                 })
                 .finally(() => {
