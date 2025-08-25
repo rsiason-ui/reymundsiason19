@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reymund's Digital Catalyst | Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=Garamond:wght@400;600;700&family=Didot:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles & Luxury Background */
+        :root {
+            --midnight-navy: #0a0a2a;
+            --champagne-ivory: #f8f0e3;
+            --metallic-gold: #d4af37;
+            --soft-platinum: #e5e4e2;
+            --deep-navy: #050518;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Didot', 'Helvetica Neue', serif;
+            color: var(--champagne-ivory);
+            background: linear-gradient(125deg, var(--midnight-navy), #1a1a40, #2d1a36);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            overflow-x: hidden;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Luxury Elements Overlay */
+        .luxury-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .gold-flash {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0) 70%);
+            border-radius: 50%;
+            animation: twinkle 8s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+        }
+        
+        /* Modern Clock - Now in Footer */
+        .luxury-clock {
+            font-family: 'Bodoni Moda', serif;
+            color: var(--metallic-gold);
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* NEW: Logo Circle Design */
+        .logo-circle {
+            width: 50px;
+            height: 50px;
+            background-color: var(--midnight-navy);
+            border: 2px solid var(--metallic-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-family: 'Bodoni Moda', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--metallic-gold);
+        }
+        
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 24, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.8rem;
+            color: var(--metallic-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-watermark {
+            font-size: 2.5rem;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--champagne-ivory);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--metallic-gold);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--metallic-gold);
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--metallic-gold);
+            margin: 2px 0;
+            transition: all 0.3s ease;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: none;
+        }
+        
+        section.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--metallic-gold), transparent);
+            margin: 60px 0;
+            width: 100%;
+        }
+        
+        /* Content Boxes */
+        .content-box {
+            background: rgba(5, 5, 24, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 5px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Bodoni Moda', 'Garamond', serif;
+            color: var(--metallic-gold);
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            color: var(--champagne-ivory);
+            margin-top: 30px;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        ul, ol {
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        /* Golden Button */
+        .gold-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--metallic-gold), #f9d423);
+            color: var(--midnight-navy);
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .gold-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(135deg, #f9d423, var(--metallic-gold));
+        }
+        
+        /* Contact Form - FIXED RESPONSIVENESS */
+        .contact-form {
+            margin-top: 40px;
+            width: 100%;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--metallic-gold);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            max-width: 100%;
+            padding: 12px 15px;
+            background: rgba(248, 240, 227, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 5px;
+            color: var(--champagne-ivory);
+            font-family: 'Didot', serif;
+            transition: all 0.3s ease;
+            box-sizing: border-box; /* Added for proper width calculation */
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--metallic-gold);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+        
+        /* Map Styles */
+        .map-container {
+            margin-top: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        /* Weather Widget */
+        .weather-widget {
+            margin-top: 40px;
+            background: rgba(5, 5, 24, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .weather-widget h3 {
+            color: var(--metallic-gold);
+            margin-bottom: 15px;
+        }
+        
+        /* FAQ Styles */
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            padding-bottom: 15px;
+        }
+        
+        .faq-question {
+            font-family: 'Bodoni Moda', serif;
+            color: var(--metallic-gold);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: var(--champagne-ivory);
+            padding: 10px 0;
+            display: none; /* Initially hidden */
+        }
+        
+        .faq-active .faq-answer {
+            display: block; /* Show when active */
+        }
+        
+        .faq-question:after {
+            content: '+';
+            font-size: 1.5rem;
+        }
+        
+        .faq-active .faq-question:after {
+            content: '-';
+        }
+        
+        /* Footer Styles */
+        footer {
+            background: var(--deep-navy);
+            padding: 60px 20px 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: var(--metallic-gold);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--metallic-gold);
+            border-radius: 50%;
+            color: var(--metallic-gold);
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--metallic-gold);
+            color: var(--midnight-navy);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            margin-top: 30px;
+            color: var(--champagne-ivory);
+            font-size: 0.9rem;
+        }
+        
+        /* Remove bullet points from footer lists */
+        footer ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        footer li {
+            margin-bottom: 10px;
+        }
+
+        /* Form Status Messages */
+        .form-status {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .form-status.success {
+            background-color: rgba(46, 125, 50, 0.2);
+            border: 1px solid rgba(46, 125, 50, 0.5);
+            color: #a5d6a7;
+        }
+        
+        .form-status.error {
+            background-color: rgba(211, 47, 47, 0.2);
+            border: 1px solid rgba(211, 47, 47, 0.5);
+            color: #e57373;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .content-box {
+                padding: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .logo-circle {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+                margin-top: 20px;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
+            }
+            
+            section {
+                padding: 80px 15px;
+            }
+            
+            .content-box {
+                padding: 20px;
+            }
+            
+            ul, ol {
+                padding-left: 20px;
+            }
+            
+            .gold-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+                display: block;
+                width: 100%;
+                margin: 20px 0;
+            }
+            
+            .footer-section {
+                min-width: 100%;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .map-container iframe {
+                height: 300px;
+            }
+            
+            /* Contact form adjustments for mobile */
+            .contact-form {
+                margin-top: 30px;
+            }
+            
+            .form-group {
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 70px 10px;
+            }
+            
+            .content-box {
+                padding: 15px;
+            }
+            
+            .logo {
+                font-size: 1.3rem;
+            }
+            
+            .logo-circle {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+                margin-right: 8px;
+            }
+            
+            .faq-question {
+                font-size: 1.1rem;
+            }
+            
+            .map-container iframe {
+                height: 250px;
+            }
+            
+            /* Additional mobile adjustments for contact form */
+            .form-group input,
+            .form-group textarea {
+                padding: 10px 12px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Luxury Background Elements -->
+    <div class="luxury-overlay">
+        <div class="gold-flash" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="gold-flash" style="top: 70%; left: 80%; animation-delay: 2s;"></div>
+        <div class="gold-flash" style="top: 30%; left: 60%; animation-delay: 4s;"></div>
+        <div class="gold-flash" style="top: 50%; left: 20%; animation-delay: 6s;"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" data-section="home">
+                <div class="logo-circle">RAS</div>
+                Reymund's Digital Catalyst
+                <div class="hamburger" id="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" data-section="home">Home</a></li>
+                <li><a href="#" data-section="services">Services</a></li>
+                <li><a href="#" data-section="portfolio">Portfolio</a></li>
+                <li><a href="#" data-section="blog">Blog</a></li>
+                <li><a href="#" data-section="faq">FAQ</a></li>
+                <li><a href="#" data-section="terms">Terms</a></li>
+                <li><a href="#" data-section="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Page Sections -->
+    <section id="home" class="active">
+        <h1>Hello, I'm Reymund.</h1>
+        <div class="content-box">
+            <p>As an entrepreneur, coach, or business leader, you're constantly pulled away by emails, scheduling, and admin work—necessary tasks that drain your energy and steal time from the strategic work that grows your business. My mission is simple: to give you back your time and mental clarity.</p>
+            <p>Imagine opening a clean, prioritized inbox, a calendar that flows smoothly, and files perfectly organized with research prepared before every meeting; this is the reality I create for my clients through reliable, stress-free systems that let you focus on leading, building, and thriving. I become your partner in productivity so you can finally breathe easily and move forward with confidence.</p>
+        </div>
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Book Your Free Consultation</a>
+    </section>
+    
+    <section id="services">
+        <h2>Core Services</h2>
+        <div class="content-box">
+            <h3>From Overwhelm to Order: Tailored Support for Your Business</h3>
+            <p>I go beyond task completion to design comprehensive systems that free your time and sharpen your focus. My support is delivered through these key services:</p>
+            
+            <h3>Core Services:</h3>
+            <ol>
+                <li><strong>Inbox & Calendar Management:</strong> I organize, filter, and prioritize your communications and schedule to ensure your time is dedicated to high-value work.</li>
+                <li><strong>File & Data Organization:</strong> I create clean, logical, and accessible digital systems for all documents, spreadsheets, and drives.</li>
+                <li><strong>Research & Documentation:</strong> I provide market insights, competitor analyses, and polished presentations ready when you need them.</li>
+                <li><strong>Client & Team Support:</strong> I facilitate smooth communication, onboarding, and coordination to keep all stakeholders aligned.</li>
+                <li><strong>Travel Planning:</strong> I seamlessly arrange flights, accommodations, and detailed itineraries for your business needs.</li>
+            </ol>
+            
+            <h3>Premium Add-Ons:</h3>
+            <ol>
+                <li><strong>Canva Design</strong> for social graphics, presentations, and branded documents</li>
+                <li><strong>CapCut Video Editing</strong> for short-form digital content</li>
+                <li><strong>Social Media Management</strong> including posting, engagement, and growth</li>
+                <li><strong>Lead Generation</strong> with curated prospects for your pipeline</li>
+                <li><strong>Customer Support</strong> with professional, empathetic client responses</li>
+            </ol>
+        </div>
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Book Your Free Consultation</a>
+    </section>
+    
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="content-box">
+            <p>I believe in showing, not just telling. To give you the most relevant insight into how I can help, I personalize work samples based on your specific business needs and challenges. Please let me know what you'd like to see most, and I'll prepare examples just for you.</p>
+        </div>
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Schedule a consultation to review samples</a>
+    </section>
+    
+    <section id="blog">
+        <h2>Blog</h2>
+        
+        <div class="content-box">
+            <h3>The Delegation Dilemma: How to Know What to Outsource to a VA First</h3>
+            <p>You built your business from the ground up. You've been the CEO, the marketer, the salesperson, and the admin assistant. This "do-it-all" mindset is what got you here, but it's also the very thing that might be holding you back from scaling. The transition from doing to delegating is one of the most critical, and often most difficult, leaps for an entrepreneur to make.</p>
+            <p>The question isn't if you should hire a Virtual Assistant (VA), but what you should hand over first. Delegating the wrong tasks can create more work. Delegating the right ones can be utterly transformative.</p>
+            
+            <h3>Start With The "Three D's" Framework</h3>
+            <p>A powerful way to audit your workload is to categorize tasks using the "Three D's":</p>
+            <ol>
+                <li><strong>Delete:</strong> Is this task necessary? Does it add real value? If not, stop doing it entirely.</li>
+                <li><strong>Diminish:</strong> Can this task be done less frequently or simplified? Does that detailed weekly report need to be monthly?</li>
+                <li><strong>Delegate:</strong> Is this a repetitive, time-consuming, or skill-specific task that someone else can do better or faster?</li>
+            </ol>
+            <p>The tasks that fall into "Delegate" are your prime candidates for a VA.</p>
+            
+            <h3>The Golden List: The First 5 Things to Delegate to a VA</h3>
+            <p>Based on my work with clients, these are the most common and highest-impact tasks to outsource first:</p>
+            <ol>
+                <li><strong>Email & Calendar Triage:</strong> This is the number one source of mental drain for leaders. A VA can filter your inbox, flag urgent messages, unsubscribe from junk, schedule appointments, and protect your deep work blocks from unnecessary meetings. The goal isn't just an empty inbox; it's a calm mind.</li>
+                <li><strong>Client Onboarding & Communication:</strong> Creating welcome packets, sending follow-up emails, scheduling discovery calls, and updating your CRM. A VA ensures every new client feels valued and attended to from the very first interaction, without you lifting a finger.</li>
+                <li><strong>Research & Documentation:</strong> Whether it's market research for a new offer, compiling data for a podcast guest, or preparing a slide deck for an upcoming presentation, a VA can gather, synthesize, and present information in a digestible format. You get the insights without the hours of Googling.</li>
+                <li><strong>File & Digital Organization:</strong> A chaotic Google Drive or Dropbox is a silent productivity killer. A VA can create a logical, standardized filing system for your documents, spreadsheets, and presentations so you can find what you need in seconds, not minutes.</li>
+                <li><strong>Travel & Event Planning:</strong> Booking flights, accommodations, and creating detailed itineraries for business trips or conferences. This is a complex, time-sucking task that a VA can handle seamlessly, ensuring you can focus on the purpose of your trip, not the logistics.</li>
+            </ol>
+            
+            <h3>Making the Handoff Successful</h3>
+            <p>Delegation isn't just about dumping tasks. It's about setting your VA (and yourself) up for success.</p>
+            <ul>
+                <li><strong>Document Your Processes:</strong> Use Loom to record quick video tutorials of how you like things done.</li>
+                <li><strong>Start Small:</strong> Begin with one or two tasks. Build trust and rapport before adding more.</li>
+                <li><strong>Focus on Outcomes, Not Micromanagement:</strong> Communicate the goal (e.e., "Ensure clients feel excited and prepared after booking"), not just the step-by-step instructions.</li>
+            </ul>
+            
+            <h3>The Bottom Line</h3>
+            <p>The first step to effective delegation is trusting someone else with the parts of your business you cling to tightest. By starting with these repetitive but critical tasks, you don't just free up hours—you free up the mental capacity to strategize, innovate, and lead. What could you build with an extra 10 hours per week?</p>
+        </div>
+        
+        <div class="content-box">
+            <h3>More Than a Task-Rabbit: How a Strategic VA Partnership Unlocks Your Next Growth Level</h3>
+            <p>Many business owners hire a Virtual Assistant expecting a remote administrative clerk. They get help with emails and scheduling and are happy with the few hours saved. But they're missing the bigger picture. A truly great VA isn't a pair of hands; they're a strategic partner invested in your growth. The difference is transformative.</p>
+            <p>This shift in mindset—from seeing a VA as a cost to seeing them as a force multiplier—is what separates stagnant businesses from scaling ones.</p>
+            
+            <h3>The Four Pillars of a Strategic VA Partnership</h3>
+            <p>A strategic VA operates on four key levels:</p>
+            <ol>
+                <li><strong>The Architect of Efficiency:</strong> Before a task is ever completed, a strategic VA analyzes the system behind it. Is there a way to automate this email response? Can we create a template for that recurring report? Would a new project management tool streamline client delivery? They don't just do the work; they constantly look for ways to make the work smarter, faster, and more scalable. They build the runway for you to take off.</li>
+                <li><strong>The Guardian of Your Focus:</strong> Your energy is your most valuable asset. A strategic VA acts as a filter and a shield. They protect your calendar from time-wasting meetings. They guard your deep work blocks fiercely. They handle minor client inquiries and internal team questions so that you are only interrupted for decisions that truly require your expertise. They are the reason you can finally focus on the $10,000/hour work, not the $10/hour work.</li>
+                <li><strong>The Anticipator of Needs:</strong> A task-based VA waits for a command. A strategic VA anticipates what's needed next. They notice you have a big product launch next month and proactively ask if you need research on competitors. They see a meeting with a key investor on your calendar and prepare a one-pager with talking points and potential Q&As. They move from being reactive to proactive, constantly asking, "What does my leader need to win today?"</li>
+                <li><strong>The Ambassador of Your Brand:</strong> Your VA often becomes the first point of contact for clients, partners, and your team. A strategic VA embodies your values and communication style. They ensure every interaction is professional, empathetic, and on-brand. They don't just handle communication; they strengthen relationships, making clients feel heard and your team feel supported.</li>
+            </ol>
+            
+            <h3>What This Partnership Looks Like in Practice</h3>
+            <p>Imagine this: It's Monday morning. Instead of dreadin g an inbox with 200 new emails, you find a brief summary from your VA: 3 need your response, 5 have been scheduled, and the rest have been sorted or deleted. Your calendar for the week is perfectly organized, with focus time blocked and meetings clustered. A folder awaits you with all the research compiled for your keynote speech on Friday. A client onboarding process you've been meaning to build for months is now live and automated.</p>
+            <p>You didn't have to ask for any of it. Your VA, your strategic partner, handled it. You can now spend your week leading, creating, and closing deals.</p>
+            
+            <h3>Investing in Growth</h3>
+            <p>Hiring for tasks is an expense. Hiring a strategic partner is an investment in your capacity, your sanity, and the future growth of your business. Are you ready to make that investment?</p>
+        </div>
+        
+        <div class="content-box">
+            <h3>The Real Cost of Doing It All Yourself: Why Your "I'll Just Do It" Mindset Is Holding Your Business Hostage</h3>
+            <p>"It's faster if I just do it myself."</p>
+            <p>How many times have you said that? It feels true in the moment. Explaining a task, documenting a process, checking the work—it does take time. But this short-term thinking creates a long-term trap. The "I'll Just Do It" (IJDI) mindset is the single biggest bottleneck to growth for ambitious entrepreneurs.</p>
+            <p>Let's break down the true, often hidden, cost of refusing to delegate.</p>
+            
+            <h3>1. The Opportunity Cost: What Are You NOT Doing?</h3>
+            <p>This is the biggest cost. The hour you spend sorting emails is an hour you did not spend:</p>
+            <ul>
+                <li>On a sales call with a dream client.</li>
+                <li>Crafting your new marketing campaign.</li>
+                <li>Developing a new product or service.</li>
+                <li>Resting and recharging to avoid burnout.</li>
+            </ul>
+            <p>If that hour of admin work is worth $25 to your business, but an hour of strategy could generate $500, the real cost of you doing that admin isn't $25—it's $475 in lost opportunity.</p>
+            
+            <h3>2. The Burnout Cost: The Slow Fade</h3>
+            <p>Burnout isn't always a dramatic crash. It's a slow fade. It's the constant low-grade stress of a never-ending to-do list. It's the resentment that builds from working late nights on tasks you hate. It's the loss of passion for the business you once loved.</p>
+            <p>The IJDI mindset directly fuels this. You are constantly operating in the weeds, leaving no mental space for the visionary work that inspired you to start in the first place. You're building a job for yourself, not a business.</p>
+            
+            <h3>3. The Scalability Cost: The Ceiling You Can't Break Through</h3>
+            <p>A business that relies entirely on the founder has a hard ceiling. There are only so many hours in your week. You are the lid on your own growth. You cannot scale past your personal capacity. Systems and delegation are not optional for growth; they are the fundamental building blocks.</p>
+            
+            <h3>Making the Mental Shift: From "Doer" to "Director"</h3>
+            <p>Breaking the IJDI habit requires a conscious shift in identity.</p>
+            <ul>
+                <li><strong>Your Value is in Your Vision:</strong> Your highest value to your business is not your ability to manage a calendar. It's your unique vision, your strategic thinking, and your ability to connect with clients. Every minute spent on low-value work dilutes that.</li>
+                <li><strong>Embrace the Learning Curve:</strong> Yes, delegating a task will take longer the first time. Maybe even the second time. View this not as wasted time, but as an investment. By the third time, it will be faster. By the fourth, it will be completely off your plate forever. It's a short-term pain for a long-term gain.</li>
+                <li><strong>Start Before You're "Ready":</strong> Don't wait until you're completely overwhelmed to hire help. That's like waiting for a heart attack before starting to exercise. The best time to bring on a VA is when you see growth on the horizon, not when you're already drowning.</li>
+            </ul>
+            
+            <h3>The Path to Freedom</h3>
+            <p>The equation is simple: to gain freedom (time, mental space, energy), you must give up control over the tasks that don't require your unique genius. Letting go is an act of leadership. It's the decision to trade the temporary comfort of control for the permanent power of scale.</p>
+            <p>Your business has the potential to be so much more than just your personal workload. It's time to stop being the chief everything officer and start being the CEO. A Virtual Assistant isn't just support; they are the key that unlocks the door to that future.</p>
+        </div>
+    </section>
+    
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="content-box">
+            <div class="faq-item">
+                <div class="faq-question">Q1: I've never worked with a VA before—what's the first step?</div>
+                <div class="faq-answer">A: We'll start with a free consultation. It's simply a conversation about your goals, challenges, and needs.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q2: What hours do you work?</div>
+                <div class="faq-answer">A: I'm based in the Philippines (UTC+8), but I adjust to overlap with your core business hours.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q3: Do you take international clients?</div>
+                <div class="faq-answer">A: Yes! I serve clients worldwide and adapt easily to different cultures and business styles.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q4: What tools do you use?</div>
+                <div class="faq-answer">A: I'm skilled in Google Workspace, MS Office, Slack, Teams, Asana, Trello, ClickUp, Canva, CapCut, Gmail, and Outlook.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q5: How do we communicate?</div>
+                <div class="faq-answer">A: Email, Slack, or quick calls—whatever works best for you. Tasks can be tracked in your preferred system.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q6: How fast do you respond?</div>
+                <div class="faq-answer">A: Urgent messages within a few hours, standard tasks within 24 hours.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q7: How do you ensure quality?</div>
+                <div class="faq-answer">A: Careful attention to detail and proactive communication. If I need clarification, I'll ask before finalizing.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q8: What do your design/video add-ons cover?</div>
+                <div class="faq-answer">A: Graphics for social media, branded documents, slides, and short-form edited videos.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q9: How do payments work?</div>
+                <div class="faq-answer">A: Via secure invoicing platforms (PayPal, Wise, or bank transfer). You'll always receive a clear invoice.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q10: What are your payment terms?</div>
+                <div class="faq-answer">A: Retainers (monthly) or per-project. Usually net-7 after invoicing.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q11: Do you require contracts?</div>
+                <div class="faq-answer">A: No long lock-ins. Start with a project or a retainer—flexible as you need.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q12: How soon can you start?</div>
+                <div class="faq-answer">A: Small tasks within 1–2 days, larger projects within a week.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q13: Is my information safe?</div>
+                <div class="faq-answer">A: Yes. I sign NDAs and keep all data confidential.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q14: How do you manage sensitive account access?</div>
+                <div class="faq-answer">A: Through password managers (LastPass, Bitwarden) and 2FA.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q15: What if I don't like the outcome?</div>
+                <div class="faq-answer">A: I offer revisions and work until it meets your expectations.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q16: Which industries do you know best?</div>
+                <div class="faq-answer">A: Coaching, consulting, digital marketing, e-commerce, and professional services.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q17: Can you set up new systems for me?</div>
+                <div class="faq-answer">A: Yes! I create order from scratch—emails, project management, workflows, and more.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q18: Do you speak other languages?</div>
+                <div class="faq-answer">A: Fluent in English and Filipino (Tagalog).</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q19: Why you, not another VA?</div>
+                <div class="faq-answer">A: I go beyond tasks. I anticipate, organize, and look for ways to save you more time.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q20: I'm ready—how do we begin?</div>
+                <div class="faq-answer">A: Easy! Book your free consultation and we'll get started.</div>
+            </div>
+            
+            <!-- Weather Widget for Roxas City -->
+            <div class="weather-widget">
+                <h3>Current Weather in Roxas City</h3>
+                <div id="weather-data">
+                    <p>Loading weather information...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="terms">
+        <h2>Terms & Conditions</h2>
+        <div class="content-box">
+            <p>At the heart of every successful partnership is clarity and trust. You need to know exactly what to expect when we work together. That's why I've built my service on a foundation of absolute professionalism, transparency, and security, ensuring you can delegate with complete confidence.</p>
+            
+            <h3>1. The Client Services Agreement: Clarity from Day One</h3>
+            <p>Before any work begins, we will co-create and sign a comprehensive Client Services Agreement (CSA). This document is not fine print; it is our shared blueprint for success, designed to eliminate any ambiguity. It clearly outlines:</p>
+            <ul>
+                <li><strong>Scope of Work:</strong> A detailed description of the specific tasks, projects, and responsibilities I will manage for you. This ensures we are perfectly aligned on expectations from the outset.</li>
+                <li><strong>Performance Metrics:</strong> How we will measure success (e.g., inbox zero maintained by EOD each day, 24-hour response time on assigned queries).</li>
+                <li><strong>Communication Protocols:</strong> Our preferred channels (e.e., Slack, email, Voxer), scheduled check-in times, and expected response windows for each of us.</li>
+                <li><strong>Core Working Hours:</strong> My standard availability within Philippine Standard Time (PST), with clear guidelines for urgent requests outside these hours.</li>
+                <li><strong>Revision Policy:</strong> The process for requesting adjustments or revisions to completed work.</li>
+            </ul>
+            <p>This agreement is a living document. We will review it regularly to ensure it evolves with your business needs.</p>
+            
+            <h3>2. Financial Transparency: Simplified & Secure Billing</h3>
+            <p>There will never be any surprises or informal payment requests. My financial system is designed for simplicity and professionalism.</p>
+            <ul>
+                <li><strong>Official Invoicing:</strong> You will receive a detailed, itemized digital invoice for each billing cycle (typically monthly or quarterly). Each invoice will clearly list the services rendered, the hours dedicated (if applicable), and the total amount due.</li>
+                <li><strong>Secure Payment Methods:</strong> All payments are processed through secure, international platforms like Wise, PayPal, or Stripe. These channels offer buyer protection and secure transaction processing. I will never ask for a direct bank transfer or payment through an unsecured method.</li>
+                <li><strong>Clear Payment Terms:</strong> Invoices will specify a clear due date (e.e., Net 7 or Net 15) and any late payment policies, ensuring smooth cash flow for both of us.</li>
+                <li><strong>No Hidden Fees:</strong> The price we agree upon is the price you pay. Any potential additional costs for premium software subscriptions or other tools will be discussed and approved by you in advance.</li>
+            </ul>
+            
+            <h3>3. Jurisdiction & Legal Framework: The Security of Philippine Law</h3>
+            <p>Our formal working relationship is governed by the clear and robust legal framework of the Republic of the Philippines.</p>
+            <ul>
+                <li><strong>Professional Standards:</strong> The Philippines has a world-renowned and mature outsourcing industry. The legal system provides a strong, predictable framework for professional service contracts, protecting both the service provider and the client.</li>
+                <li><strong>Data Privacy Compliance:</strong> I strictly adhere to the Philippine Data Privacy Act of 2012 (RA 10173), which is based on stringent international standards (like GDPR). This means your personal and business data is handled with the highest level of confidentiality and security. My systems are designed to protect your information from unauthorized access, disclosure, or misuse.</li>
+                <li><strong>Clear Dispute Resolution:</strong> The CSA will include a clause outlining the steps for resolving any potential disputes, typically beginning with meditation and arbitration under Philippine jurisdiction. This provides a clear, fair, and professional path forward should any issues ever arise, though my primary goal is to ensure they never do.</li>
+            </ul>
+            
+            <h3>4. Confidentiality & Data Security: Your Information is Protected</h3>
+            <p>Your business secrets are safe with me. From the moment we sign our agreement, you have my unwavering commitment to confidentiality.</p>
+            <ul>
+                <li><strong>Non-Disclosure Agreement (NDA):</strong> A comprehensive mutual NDA is integrated into our Client Services Agreement. This legally binds me to protect all your proprietary information, business strategies, client lists, and any other sensitive data.</li>
+                <li><strong>Ethical Standards:</strong> I operate with unwavering integrity. I will never use or share your information for any purpose other than fulfilling my duties to you.</li>
+                <li><strong>Secure Tools:</strong> I use password-managed, encrypted communication and project management tools (like LastPass, Signal, or standard industry platforms) to ensure all client data remains secure.</li>
+            </ul>
+            
+            <h3>Your Peace of Mind is My Priority</h3>
+            <p>My goal is to remove your administrative stress, not add to it. This structured, transparent, and legally sound framework is the bedrock of my service. It allows us to build a productive, long-term partnership where you can focus on growth, knowing the operational details are handled with professionalism and integrity.</p>
+            
+            <p>Ready to work with complete confidence?</p>
+            <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Let's discuss your needs and review a sample agreement</a>
+        </div>
+    </section>
+    
+    <section id="privacy">
+        <h2>Privacy Notice</h2>
+        <div class="content-box">
+            <p>Your trust is the foundation of our working relationship. I am deeply committed to protecting your privacy and handling your personal information with the highest standards of care and confidentiality. This policy outlines how I collect, use, and safeguard your data, ensuring you always remain in control.</p>
+            
+            <h3>1. The Information I Collect: Minimizing Data for Maximum Respect</h3>
+            <p>I adhere to the principle of data minimization, meaning I only collect information that is absolutely essential for us to work together effectively and fulfill my contractual obligations to you.</p>
+            <p>This typically includes:</p>
+            <ul>
+                <li><strong>Identifiers:</strong> Your full name, email address, and business name.</li>
+                <li><strong>Contact & Billing Details:</strong> Your business address and other necessary details for invoicing and communication.</li>
+                <li><strong>Business Information:</strong> Details about your business operations, goals, and clientele that are required to provide tailored support services.</li>
+                <li><strong>Credentials:</strong> Passwords or access details to tools required for task execution (e.g., social media logins, email access). These are handled with extreme caution and stored exclusively in a secure, encrypted password manager. I strongly recommend using a secure sharing method and enabling 2-factor authentication (2FA) on all accounts for our mutual security.</li>
+            </ul>
+            
+            <h3>2. How I Use Your Information: Purpose-Limited and Transparent</h3>
+            <p>Your data is used solely for legitimate business purposes to ensure I can deliver the high-quality service you expect. This includes:</p>
+            <ul>
+                <li><strong>Service Delivery:</strong> To manage your inbox, schedule, and other tasks as outlined in our agreement.</li>
+                <li><strong>Communication:</strong> To send you updates, invoices, and important information regarding our work together.</li>
+                <li><strong>Improvement:</strong> To analyze non-personal, aggregated data to improve the efficiency and quality of my services.</li>
+                <li><strong>Security:</strong> To verify your identity and protect our accounts from unauthorized access or fraud.</li>
+            </ul>
+            
+            <h3>3. Your Rights: You Are in Control</h3>
+            <p>You have complete control over your personal information. At any time, you have the right to:</p>
+            <ul>
+                <li><strong>Access:</strong> Request a copy of the personal data I hold about you.</li>
+                <li><strong>Correction:</strong> Ask me to update or correct any inaccurate or incomplete information.</li>
+                <li><strong>Deletion:</strong> Request the deletion of your personal data, subject to certain legal or contractual obligations that may require me to retain specific records (e.e., for invoicing purposes under Philippine law).</li>
+                <li><strong>Objection:</strong> Object to certain uses of your data, such as for direct marketing.</li>
+            </ul>
+            <p>To exercise any of these rights, please contact me directly via this site, and I will respond promptly.</p>
+            
+            <h3>4. Data Storage and Security: Protecting What You Entrust to Me</h3>
+            <p>I implement robust technical and organizational measures to keep your data secure:</p>
+            <ul>
+                <li><strong>Encryption:</strong> Sensitive data is encrypted at rest and in transit using industry-standard protocols.</li>
+                <li><strong>Secure Tools:</strong> I only use reputable, secure software and cloud services (like Google Drive, Dropbox, etc.) that comply with major data protection regulations.</li>
+                <li><strong>Access Control:</strong> Your data is accessible only to me and is protected by strong, unique passwords and two-factor authentication wherever possible.</li>
+            </ul>
+            
+            <h3>5. Use of Cookies and Site Analytics</h3>
+            <p>This website may use "cookies" – small text files stored on your device – to enhance your experience. These are used for essential functions and to collect non-personal, anonymized data (e.e., browser type, pages visited, time spent on site). This analytics data helps me understand how the site is used and where I can improve its performance and content. You can control cookie settings through your own browser preferences.</p>
+            
+            <h3>6. Third-Party Sharing: Partners in Confidentiality</h3>
+            <p>I only share your data with a select group of trusted third-party service providers when necessary to perform business functions (e.e., using Calendly for scheduling, QuickBooks for invoicing, or Google Workspace for file storage). Each provider is rigorously vetted and is bound by strict confidentiality and data processing agreements to ensure they protect your information to the same standard I do. I never sell, rent, or trade your personal data to any third parties for marketing or any other purposes.</p>
+            
+            <h3>7. Contact Me</h3>
+            <p>Your privacy is of utmost importance. If you have any questions, concerns, or requests regarding this privacy policy or how your data is handled, please do not hesitate to reach out to me directly via the contact form on this site.</p>
+            <p>I am committed to working with you to ensure you feel confident and secure in our partnership.</p>
+        </div>
+    </section>
+    
+    <section id="ip">
+        <h2>Intellectual Property</h2>
+        <div class="content-box">
+            <p>A successful partnership is built on clarity and trust, especially when it comes to ownership of creative work and sensitive materials. This Intellectual Property (IP) clause is designed to protect both of us, ensuring there is no ambiguity about who owns what. My fundamental principle is simple: your assets are yours, my assets are mine, and we both grant the rights necessary for a productive collaboration.</p>
+            
+            <h3>1. My Intellectual Property (The "Tools of My Trade")</h3>
+            <p>I have developed proprietary systems, processes, and materials that allow me to deliver high-quality service efficiently. These assets remain my exclusive property.</p>
+            <p>This includes, but is not limited to:</p>
+            <ul>
+                <li><strong>Pre-existing Templates & Frameworks:</strong> Email templates, workflow checklists, standard operating procedures (SOPs), project management boards, and onboarding systems I created before our engagement.</li>
+                <li><strong>Methodologies & Processes:</strong> The unique ways I organize information, manage projects, and optimize workflows.</li>
+                <li><strong>Website & Marketing Content:</strong> All original text, copy, articles, graphics, and design elements on this website and associated marketing materials.</li>
+            </ul>
+            <p>Why this matters: This protects the investment I have made in developing my business tools. You benefit from these refined systems, but the underlying IP remains with me to use in serving other clients.</p>
+            
+            <h3>2. Your Intellectual Property (Your "Crown Jewels")</h3>
+            <p>Your business assets are sacred. Any materials, data, or confidential information you share with me remain 100% your property.</p>
+            <p>This includes, but is not limited to:</p>
+            <ul>
+                <li><strong>Brand Assets:</strong> Your logos, trademarks, brand names, color schemes, and brand guidelines.</li>
+                <li><strong>Business Data:</strong> Your customer lists, prospect information, financial data, and internal documents.</li>
+                <li><strong>Creative Content:</strong> Your website content, marketing copy, course materials, product designs, and any other content you created.</li>
+                <li><strong>Confidential Information:</strong> Any trade secrets, business strategies, or proprietary information you disclose.</li>
+            </ul>
+            <p>Why this matters: This guarantees that you retain complete ownership and control over everything that makes your business unique. I act as a steward of your IP, using it solely for the purpose of fulfilling our agreement.</p>
+            
+            <h3>3. Deliverables & Work Product (The "Finished Work")</h3>
+            <p>This section defines the ownership of the specific outputs I create for you during our engagement.</p>
+            <ul>
+                <li><strong>Final Paid Work Product:</strong> Any specific, customized deliverables that I create for you and that you pay for (e.e., a designed report, a researched document, a curated list, a managed social media campaign) become your property upon full payment. You are free to use, modify, and distribute these deliverables as you see fit for your business.</li>
+                <li><strong>My Underlying Systems & Frameworks:</strong> While the final deliverable is yours, the underlying, reusable systems, templates, or processes I may use or create to produce that deliverable remain my IP. However, I grant you a perpetual, royalty-free license to use those specific systems solely in conjunction with the deliverables you paid for.</li>
+            </ul>
+            
+            <h3>Example for Clarity:</h3>
+            <p>If I create a custom client onboarding process for you, the specific document with your company name and details is yours. The master template I developed and adapted for you remains my IP, but you have full lifetime rights to use your customized version.</p>
+            
+            <h3>4. Confidentiality & Mutual Respect</h3>
+            <p>This IP framework is underpinned by a mutual commitment to confidentiality, as outlined in our broader agreement. I will:</p>
+            <ul>
+                <li>Treat all of your intellectual property as strictly confidential.</li>
+                <li>Only use your materials for the explicit purpose of providing services to you.</li>
+                <li>Never replicate, repurpose, or resell your unique deliverables for another client.</li>
+            </ul>
+            <p>This ensures clarity, protects both our interests, and fosters a relationship based on professional respect and trust. By defining these boundaries from the start, we can collaborate with confidence and focus entirely on achieving your business goals.</p>
+        </div>
+    </section>
+    
+    <section id="social">
+        <h2>Official Social Media Accounts</h2>
+        <div class="content-box">
+            <p>To maintain a professional and secure environment, I operate exclusively through the official accounts and channels listed below. This clarity helps ensure you are always interacting with me and not an impersonator.</p>
+            
+            <h3>My Officially Verified Social Profiles:</h3>
+            <p>Connect with me, follow my content, and reach out through these only confirmed channels:</p>
+            <ul>
+                <li><strong>LinkedIn:</strong> /in/reymundsiason (For professional insights and networking)</li>
+                <li><strong>Facebook:</strong> /reymundsiason19 (For community updates)</li>
+                <li><strong>TikTok:</strong> @reymundsiason19 (For quick tips and trends)</li>
+                <li><strong>X (Twitter):</strong> @reymundsiason19 (For industry news and engagement)</li>
+                <li><strong>YouTube:</strong> @reymundsiason19 (For in-depth tutorials and vlogs)</li>
+                <li><strong>Pinterest:</strong> /reymundsiason19 (For visual resources and inspiration)</li>
+            </ul>
+            
+            <h3>🔒 Critical Security Protocol: Protecting Your Information</h3>
+            <p>Your security and peace of mind are my top priorities. Unfortunately, digital impersonation is a common threat. Please adhere to the following guidelines to ensure our interactions are always secure.</p>
+            
+            <h3>1. Official Payment Policy:</h3>
+            <ul>
+                <li>I will NEVER, under any circumstances, request payments, bank transfers, or sensitive financial information (like credit card numbers) through direct messages (DMs), social media channels, or unofficial email.</li>
+                <li>All invoices will be issued formally and exclusively through my secured business management platforms (e.e., Wise, PayPal, QuickBooks) with detailed line items and professional branding.</li>
+            </ul>
+            
+            <h3>2. Personal Information Safety:</h3>
+            <ul>
+                <li>I will NEVER ask for your passwords, government-issued ID numbers, or other highly sensitive personal data via DM or email.</li>
+                <li>If access to an account is required for task execution (e.e., social media login), we will use a secure, encrypted password manager (like LastPass or 1Password) for sharing credentials, and I strongly recommend enabling two-factor authentication (2FA) on all shared accounts.</li>
+            </ul>
+            
+            <h3>3. The Only Way to Officially Inquire or Book:</h3>
+            <ul>
+                <li>To avoid miscommunication and ensure your request is handled professionally, all official service inquiries, consultations, and bookings must be initiated through my official scheduling link:</li>
+            </ul>
+            <p>👉 <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">calendly.com/siasonra/choose-me-reymund-siason</a></p>
+            <p>This system ensures you are placed directly into my official client workflow and protects your information from being lost in informal DMs.</p>
+            
+            <h3>4. How to Verify and Report:</h3>
+            <p>If you receive a suspicious message from an account claiming to be me, especially one requesting payment or information, please:</p>
+            <ol>
+                <li>Do not respond.</li>
+                <li>Cross-check the profile URL with the list of verified accounts above.</li>
+                <li>Report the impersonating account to the platform immediately.</li>
+                <li>Notify me directly by booking a quick call via the official Calendly link above.</li>
+            </ol>
+            
+            <p>Thank you for your vigilance. These measures are in place to create a safe, trustworthy, and professional foundation for our partnership.</p>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="content-box">
+            <p>Ready to transform your productivity and focus on what truly matters in your business? Let's start a conversation about how I can support your growth and efficiency.</p>
+            
+            <div class="form-status success" id="success-message">
+                <i class="fas fa-check-circle"></i> Thank you for your message! I'll get back to you as soon as possible.
+            </div>
+            
+            <div class="form-status error" id="error-message">
+                <i class="fas fa-exclamation-circle"></i> There was a problem sending your message. Please try again or email me directly.
+            </div>
+            
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What is this regarding?">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+                </div>
+                
+                <button type="submit" class="gold-button" id="submit-button">Send Message</button>
+            </form>
+            
+            <p>Alternatively, you can reach me directly at: <strong>siasonra@gmail.com</strong></p>
+            
+            <!-- Google Maps for Roxas City, Capiz -->
+            <h3 style="margin-top: 40px;">My Location for Legitimacy</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d998238.4948108396!2d121.76889918359374!3d11.469980000000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a5c7c22e2baf4f%3A0x5f9aae426b206f0a!2sRoxas%20City%2C%20Capiz!5e0!3m2!1sen!2sph!4v1719330000000!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Connect With Me</h3>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/reymundsiason" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.facebook.com/reymundsiason19" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@reymundsiason19" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://twitter.com/reymundsiason19" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/@reymundsiason19" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.pinterest.com/reymundsiason19" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#" data-section="home">Home</a></li>
+                    <li><a href="#" data-section="services">Services</a></li>
+                    <li><a href="#" data-section="portfolio">Portfolio</a></li>
+                    <li><a href="#" data-section="blog">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#" data-section="terms">Terms & Conditions</a></li>
+                    <li><a href="#" data-section="privacy">Privacy Policy</a></li>
+                    <li><a href="#" data-section="ip">Intellectual Property</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: siasonra@gmail.com</p>
+                <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button" target="_blank">Book Consultation</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Reymund's Digital Catalyst. All rights reserved.</p>
+            <!-- Clock moved to footer -->
+            <div class="luxury-clock">
+                <span id="current-time"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update clock in real-time
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+            document.getElementById('current-time').textContent = timeString;
+        }
+        
+        setInterval(updateClock, 1000);
+        updateClock();
+        
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-links a, .footer-content a');
+            const sections = document.querySelectorAll('section');
+            const hamburger = document.getElementById('hamburger-menu');
+            const navMenu = document.getElementById('nav-links');
+            
+            // Toggle mobile menu
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Function to show a specific section
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                document.getElementById(sectionId).classList.add('active');
+                
+                // Close mobile menu when a link is clicked
+                navMenu.classList.remove('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+            
+            // Add click event to all navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Don't prevent default for external links
+                    if (this.getAttribute('data-section')) {
+                        e.preventDefault();
+                        const sectionId = this.getAttribute('data-section');
+                        showSection(sectionId);
+                    }
+                    // External links will follow their href naturally
+                });
+            });
+            
+            // FAQ toggle functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    faqItem.classList.toggle('faq-active');
+                });
+            });
+            
+            // Weather API for Roxas City
+            fetchWeatherData();
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            const submitButton = document.getElementById('submit-button');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Hide any previous messages
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    subject: formData.get('subject'),
+                    message: formData.get('message')
+                };
+                
+                // Change button text to show loading
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitButton.disabled = true;
+                
+                // Send data to Google Apps Script
+                fetch('https://script.google.com/macros/s/AKfycbzuSn59RFSL8TJgKUwaK3LXKExUG8JyN0QLsR19VA-3I_zCyne3-xqv_6mvjJQzBIAkvQ/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(() => {
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    contactForm.reset();
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                })
+                .catch(error => {
+                    // Show error message
+                    errorMessage.style.display = 'block';
+                    console.error('Error:', error);
+                    
+                    // Scroll to error message
+                    errorMessage.scrollIntoView({ behavior: 'smooth' });
+                })
+                .finally(() => {
+                    // Reset button
+                    submitButton.innerHTML = 'Send Message';
+                    submitButton.disabled = false;
+                });
+            });
+        });
+        
+        // Function to fetch weather data for Roxas City
+        function fetchWeatherData() {
+            // Using OpenWeatherMap API (you'll need to replace with your own API key)
+            const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+            const city = 'Roxas City';
+            const country = 'PH';
+            
+            // For demonstration, we'll use mock data since we don't have a real API key
+            const weatherDataElement = document.getElementById('weather-data');
+            
+            // Mock weather data (replace with actual API call)
+            const mockWeatherData = {
+                temperature: 28,
+                description: 'Partly cloudy',
+                humidity: 78,
+                windSpeed: 3.5
+            };
+            
+            // Display the weather information
+            weatherDataElement.innerHTML = `
+                <p><strong>Temperature:</strong> ${mockWeatherData.temperature}°C</p>
+                <p><strong>Conditions:</strong> ${mockWeatherData.description}</p>
+                <p><strong>Humidity:</strong> ${mockWeatherData.humidity}%</p>
+                <p><strong>Wind Speed:</strong> ${mockWeatherData.windSpeed} m/s</p>
+            `;
+            
+            // Uncomment and use this code if you have a real API key:
+            /*
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.cod === 200) {
+                        const temperature = Math.round(data.main.temp);
+                        const description = data.weather[0].description;
+                        const humidity = data.main.humidity;
+                        const windSpeed = data.wind.speed;
+                        
+                        weatherDataElement.innerHTML = `
+                            <p><strong>Temperature:</strong> ${temperature}°C</p>
+                            <p><strong>Conditions:</strong> ${description}</p>
+                            <p><strong>Humidity:</strong> ${humidity}%</p>
+                            <p><strong>Wind Speed:</strong> ${windSpeed} m/s</p>
+                        `;
+                    } else {
+                        weatherDataElement.innerHTML = `<p>Weather information currently unavailable</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    weatherDataElement.innerHTML = `<p>Weather information currently unavailable</p>`;
+                });
+            */
+        }
+    </script>
+</body>
+</html>
