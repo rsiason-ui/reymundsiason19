@@ -953,7 +953,7 @@
             <p>This website may use "cookies" – small text files stored on your device – to enhance your experience. These are used for essential functions and to collect non-personal, anonymized data (e.e., browser type, pages visited, time spent on site). This analytics data helps me understand how the site is used and where I can improve its performance and content. You can control cookie settings through your own browser preferences.</p>
             
             <h3>6. Third-Party Sharing: Partners in Confidentiality</h3>
-            <p>I only share your data with a select group of trusted third-party service providers when necessary to perform business functions (e.g., using Calendly for scheduling, QuickBooks for invoicing, or Google Workspace for file storage). Each provider is rigorously vetted and is bound by strict confidentiality and data processing agreements to ensure they protect your information to the same standard I do. I never sell, rent, or trade your personal data to any third parties for marketing or any other purposes.</p>
+            <p>I only share your data with a select group of trusted third-party service providers when necessary to perform business functions (e.e., using Calendly for scheduling, QuickBooks for invoicing, or Google Workspace for file storage). Each provider is rigorously vetted and is bound by strict confidentiality and data processing agreements to ensure they protect your information to the same standard I do. I never sell, rent, or trade your personal data to any third parties for marketing or any other purposes.</p>
             
             <h3>7. Contact Me</h3>
             <p>Your privacy is of utmost importance. If you have any questions, concerns, or requests regarding this privacy policy or how your data is handled, please do not hesitate to reach out to me directly via the contact form on this site.</p>
@@ -1016,7 +1016,7 @@
             <h3>My Officially Verified Social Profiles:</h3>
             <p>Connect with me, follow my content, and reach out through these only confirmed channels:</p>
             <ul>
-                <li><strong>LinkedIn:</strong> /in/reymundsiason (For professional insights and networking)</li>
+                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/reymundsiason19?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">/in/reymundsiason19</a> (For professional insights and networking)</li>
                 <li><strong>Facebook:</strong> /reymundsiason19 (For community updates)</li>
                 <li><strong>TikTok:</strong> @reymundsiason19 (For quick tips and trends)</li>
                 <li><strong>X (Twitter):</strong> @reymundsiason19 (For industry news and engagement)</li>
@@ -1030,7 +1030,7 @@
             <h3>1. Official Payment Policy:</h3>
             <ul>
                 <li>I will NEVER, under any circumstances, request payments, bank transfers, or sensitive financial information (like credit card numbers) through direct messages (DMs), social media channels, or unofficial email.</li>
-                <li>All invoices will be issued formally and exclusively through my secured business management platforms (e.g., Wise, PayPal, QuickBooks) with detailed line items and professional branding.</li>
+                <li>All invoices will be issued formally and exclusively through my secured business management platforms (e.e., Wise, PayPal, QuickBooks) with detailed line items and professional branding.</li>
             </ul>
             
             <h3>2. Personal Information Safety:</h3>
@@ -1064,25 +1064,24 @@
         <div class="content-box">
             <p>Ready to transform your productivity and focus on what truly matters in your business? Let's start a conversation about how I can support your growth and efficiency.</p>
             
-            <!-- GetForm Contact Form -->
-            <form action="https://getform.io/f/bvrmyypb" method="POST" class="contact-form">
+            <div class="contact-form">
                 <div class="form-group">
                     <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    <input type="text" id="name" placeholder="Enter your full name">
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    <input type="email" id="email" placeholder="Enter your email address">
                 </div>
                 
                 <div class="form-group">
                     <label for="message">Your Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+                    <textarea id="message" rows="5" placeholder="How can I help you?"></textarea>
                 </div>
                 
                 <button type="submit" class="gold-button">Send Message</button>
-            </form>
+            </div>
             
             <p>Alternatively, you can reach me directly at: <strong>siasonra@gmail.com</strong></p>
             
@@ -1100,7 +1099,7 @@
             <div class="footer-section">
                 <h3>Connect With Me</h3>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/reymundsiason" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.linkedin.com/in/reymundsiason19?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://www.facebook.com/reymundsiason19" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.tiktok.com/@reymundsiason19" target="_blank"><i class="fab fa-tiktok"></i></a>
                     <a href="https://twitter.com/reymundsiason19" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -1237,6 +1236,33 @@
                 <p><strong>Humidity:</strong> ${mockWeatherData.humidity}%</p>
                 <p><strong>Wind Speed:</strong> ${mockWeatherData.windSpeed} m/s</p>
             `;
+            
+            // Uncomment and use this code if you have a real API key:
+            /*
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.cod === 200) {
+                        const temperature = Math.round(data.main.temp);
+                        const description = data.weather[0].description;
+                        const humidity = data.main.humidity;
+                        const windSpeed = data.wind.speed;
+                        
+                        weatherDataElement.innerHTML = `
+                            <p><strong>Temperature:</strong> ${temperature}°C</p>
+                            <p><strong>Conditions:</strong> ${description}</p>
+                            <p><strong>Humidity:</strong> ${humidity}%</p>
+                            <p><strong>Wind Speed:</strong> ${windSpeed} m/s</p>
+                        `;
+                    } else {
+                        weatherDataElement.innerHTML = `<p>Weather information currently unavailable</p>`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    weatherDataElement.innerHTML = `<p>Weather information currently unavailable</p>`;
+                });
+            */
         }
     </script>
 </body>
