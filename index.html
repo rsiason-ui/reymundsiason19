@@ -1530,28 +1530,144 @@
 <!-- Google Sheets contact form integration -->
 <script>
 <script>
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("status");
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyo1lPNCps-jTqoD6KOinrjYejRtcb26I8R5v4j6ACF6Mk6hW2vieF1fnx-bh4dcvbWdw/exec";
+    
+</script> 
+   <script>
+// Google Sheets Integration
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+    const submitButton = document.getElementById('submit-button');
+    
+    // Your Google Apps Script URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwwwheM51bp5GRd8EsyKoqKEuTIjs4loo05pXrNxtkvR5Pg8NyW_1F0puL_FuQOZaoH/exec';
+    
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Hide any previous messages
+        if (successMessage) successMessage.style.display = 'none';
+        if (errorMessage) errorMessage.style.display = 'none';
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message'),
+            timestamp: new Date().toISOString()
+        };
+        
+        // Validate form
+        if (!data.name || !data.email || !data.message) {
+            showToast('Please fill in all required fields.', 'error');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            showToast('Please enter a valid email address.', 'error');
+            return;
+        }
+        
+        // Change button text to show loading
+        if (submitButton) {
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.disabled = true;
+        }
+        
+        try {
+            const response = await fetch(scriptURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            if (response.ok) {
+                // Try to parse the response as JSON
+                const responseData = await response.json();
+                if (responseData.result === "success") {
+                    showToast('Thank you for your message! I\'ll get back to you soon.', 'success');
+                    contactForm.reset();
+                } else {
+                    throw new Error(responseData.message || 'Unknown error from server');
+                }
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        } catch (error) {
+            showToast('There was a network error. Please try again or email me directly.', 'error');
+            console.error('Error:', error);
+        } finally {
+            // Reset button
+            if (submitButton) {
+                submitButton.innerHTML = 'Send Message';
+                submitButton.disabled = false;
+            }
+        }
+    });
+});
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-
-    try {
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        body: data,
-        mode: "no-cors"
-      });
-
-      if (status) status.textContent = "✅ Message sent successfully!";
-      form.reset();
-    } catch (err) {
-      if (status) status.textContent = "❌ There was a network error. Please try again.";
+// Function to show toast notification
+function showToast(message, type = 'success') {
+    // Create a toast if it doesn't exist
+    let toast = document.getElementById('form-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'form-toast';
+        toast.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 5px;
+            background: var(--deep-navy);
+            color: var(--champagne-ivory);
+            border-left: 4px solid var(--metallic-gold);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            max-width: 350px;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        `;
+        document.body.appendChild(toast);
     }
-  });
+    
+    // Set message and type
+    toast.innerHTML = `
+        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}" 
+           style="margin-right: 15px; font-size: 1.5rem;"></i>
+        <div>${message}</div>
+        <button onclick="this.parentElement.style.transform='translateX(400px)'" 
+                style="background: none; border: none; color: var(--champagne-ivory); cursor: pointer; font-size: 1.2rem; margin-left: 15px;">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+    
+    // Set color based on type
+    if (type === 'success') {
+        toast.style.borderLeftColor = '#4CAF50';
+    } else {
+        toast.style.borderLeftColor = '#f44336';
+    }
+    
+    // Show toast
+    toast.style.transform = 'translateX(0)';
+    
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+        toast.style.transform = 'translateX(400px)';
+    }, 5000);
+}
 </script> 
 </body>
 </html>
+
 
