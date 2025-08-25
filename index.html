@@ -1525,5 +1525,41 @@
             */
         }
     </script>
+    </script> <!-- keep your existing script closed here -->
+
+<!-- Google Sheets contact form integration -->
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxnQtXnyuJvXVYXQr8Zj8BLt3F_pblo5PWMMb2KVixfbOutF_ICHhWr20IGtTbWnD6B/exec";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const data = new URLSearchParams(new FormData(form));
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          body: data,
+          mode: "no-cors"
+        });
+
+        if (status) status.textContent = "✅ Message sent successfully!";
+        form.reset();
+      } catch (err) {
+        if (status) status.textContent = "❌ Error sending message.";
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
+</body>
+</html>
+
