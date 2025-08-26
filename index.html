@@ -478,6 +478,72 @@
             color: var(--metallic-gold);
         }
         
+        /* Service Box Styles */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .service-box {
+            background: rgba(5, 5, 24, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--metallic-gold);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .service-title {
+            font-family: 'Bodoni Moda', serif;
+            color: var(--metallic-gold);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .service-description {
+            color: var(--champagne-ivory);
+            flex-grow: 1;
+        }
+        
+        .service-category {
+            font-family: 'Bodoni Moda', serif;
+            color: var(--metallic-gold);
+            font-size: 2rem;
+            margin: 50px 0 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .service-category:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--metallic-gold), transparent);
+        }
+        
         /* Responsive Design */
         @media (max-width: 1024px) {
             h1 {
@@ -498,6 +564,11 @@
             
             .tagline-box p {
                 font-size: 1.2rem;
+            }
+            
+            .services-container {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
             }
         }
         
@@ -593,6 +664,16 @@
             .map-container iframe {
                 height: 300px;
             }
+            
+            .services-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .service-category {
+                font-size: 1.8rem;
+                margin: 40px 0 25px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -630,6 +711,22 @@
             
             .map-container iframe {
                 height: 250px;
+            }
+            
+            .service-box {
+                padding: 20px;
+            }
+            
+            .service-title {
+                font-size: 1.3rem;
+            }
+            
+            .service-icon {
+                font-size: 2rem;
+            }
+            
+            .service-category {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -689,25 +786,94 @@
         <div class="content-box">
             <h3>From Overwhelm to Order: Tailored Support for Your Business</h3>
             <p>I go beyond task completion to design comprehensive systems that free your time and sharpen your focus. My support is delivered through these key services:</p>
-            
-            <h3>Core Services:</h3>
-            <ol>
-                <li><strong>Inbox & Calendar Management:</strong> I organize, filter, and prioritize your communications and schedule to ensure your time is dedicated to high-value work.</li>
-                <li><strong>File & Data Organization:</strong> I create clean, logical, and accessible digital systems for all documents, spreadsheets, and drives.</li>
-                <li><strong>Research & Documentation:</strong> I provide market insights, competitor analyses, and polished presentations ready when you need them.</li>
-                <li><strong>Client & Team Support:</strong> I facilitate smooth communication, onboarding, and coordination to keep all stakeholders aligned.</li>
-                <li><strong>Travel Planning:</strong> I seamlessly arrange flights, accommodations, and detailed itineraries for your business needs.</li>
-            </ol>
-            
-            <h3>Premium Add-Ons:</h3>
-            <ol>
-                <li><strong>Canva Design</strong> for social graphics, presentations, and branded documents</li>
-                <li><strong>CapCut Video Editing</strong> for short-form digital content</li>
-                <li><strong>Social Media Management</strong> including posting, engagement, and growth</li>
-                <li><strong>Lead Generation</strong> with curated prospects for your pipeline</li>
-                <li><strong>Customer Support</strong> with professional, empathetic client responses</li>
-            </ol>
         </div>
+        
+        <h3 class="service-category">Core Services</h3>
+        <div class="services-container">
+            <div class="service-box">
+                <div class="service-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h4 class="service-title">Inbox & Calendar Management</h4>
+                <p class="service-description">I organize, filter, and prioritize your communications and schedule to ensure your time is dedicated to high-value work.</p>
+            </div>
+            
+            <div class="service-box">
+                <div class="service-icon">
+                    <i class="fas fa-folder"></i>
+                </div>
+                <h4 class="service-title">File & Data Organization</h4>
+                <p class="service-description">I create clean, logical, and accessible digital systems for all documents, spreadsheets, and drives.</p>
+            </div>
+            
+            <div class="service-box">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h4 class="service-title">Research & Documentation</h4>
+                <p class="service-description">I provide market insights, competitor analyses, and polished presentations ready when you need them.</p>
+            </div>
+            
+            <div class="service-box">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h4 class="service-title">Client & Team Support</h4>
+                <p class="service-description">I facilitate smooth communication, onboarding, and coordination to keep all stakeholders aligned.</p>
+            </div>
+            
+            <div class="service-box">
+                <div class="service-icon">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <h4 class="service-title">Travel Planning</h4>
+                <p class="service-description">I seamlessly arrange flights, accommodations, and detailed itineraries for your business needs.</p>
+            </div>
+        </div>
+        
+        <h3 class="service-category">Premium Add-Ons</h3>
+        <div class="services-container">
+            <div class="service-box">
+                <div class="service-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h4 class="service-title">Canva Design</h4>
+                <p class="service-description">For social graphics, presentations, and branded documents.</p>
+            </div>
+            
+            <div class="service-box">
+                <div class="service-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h4 class="service-title">CapCut Video Editing</h4>
+                <p class="service-description">For short-form digital content.</p>
+            </div>
+            
+            <div class="service-box">
+                <div class="service-icon">
+                    <i class="fas fa-hashtag"></i>
+                </div>
+                <h4 class="service-title">Social Media Management</h4>
+                <p class="service-description">Including posting, engagement, and growth.</p>
+            </div>
+            
+            <div class="service-box">
+                <div class="service-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h4 class="service-title">Lead Generation</h4>
+                <p class="service-description">With curated prospects for your pipeline.</p>
+            </div>
+            
+            <div class="service-box">
+                <div class="service-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h4 class="service-title">Customer Support</h4>
+                <p class="service-description">With professional, empathetic client responses.</p>
+            </div>
+        </div>
+        
         <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Book Your Free Consultation</a>
     </section>
     
