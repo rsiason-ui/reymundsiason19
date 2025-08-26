@@ -544,6 +544,49 @@
             background: linear-gradient(90deg, transparent, var(--metallic-gold), transparent);
         }
         
+        /* Terms Section Styles - Updated */
+        .terms-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .term-box {
+            background: rgba(5, 5, 24, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .term-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        
+        .term-title {
+            font-family: 'Bodoni Moda', serif;
+            color: var(--metallic-gold);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .term-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--metallic-gold), transparent);
+        }
+        
         /* Responsive Design */
         @media (max-width: 1024px) {
             h1 {
@@ -569,6 +612,10 @@
             .services-container {
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 20px;
+            }
+            
+            .term-title {
+                font-size: 1.6rem;
             }
         }
         
@@ -674,6 +721,14 @@
                 font-size: 1.8rem;
                 margin: 40px 0 25px;
             }
+            
+            .term-box {
+                padding: 25px;
+            }
+            
+            .term-title {
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -727,6 +782,14 @@
             
             .service-category {
                 font-size: 1.6rem;
+            }
+            
+            .term-box {
+                padding: 20px;
+            }
+            
+            .term-title {
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -1105,48 +1168,59 @@
         <h2>Terms & Conditions</h2>
         <div class="content-box">
             <p>At the heart of every successful partnership is clarity and trust. You need to know exactly what to expect when we work together. That's why I've built my service on a foundation of absolute professionalism, transparency, and security, ensuring you can delegate with complete confidence.</p>
+        </div>
+        
+        <div class="terms-container">
+            <div class="term-box">
+                <h3 class="term-title">1. The Client Services Agreement: Clarity from Day One</h3>
+                <p>Before any work begins, we will co-create and sign a comprehensive Client Services Agreement (CSA). This document is not fine print; it is our shared blueprint for success, designed to eliminate any ambiguity. It clearly outlines:</p>
+                <ul>
+                    <li><strong>Scope of Work:</strong> A detailed description of the specific tasks, projects, and responsibilities I will manage for you. This ensures we are perfectly aligned on expectations from the outset.</li>
+                    <li><strong>Performance Metrics:</strong> How we will measure success (e.g., inbox zero maintained by EOD each day, 24-hour response time on assigned queries).</li>
+                    <li><strong>Communication Protocols:</strong> Our preferred channels (e.g., Slack, email, Voxer), scheduled check-in times, and expected response windows for each of us.</li>
+                    <li><strong>Core Working Hours:</strong> My standard availability within Philippine Standard Time (PST), with clear guidelines for urgent requests outside these hours.</li>
+                    <li><strong>Revision Policy:</strong> The process for requesting adjustments or revisions to completed work.</li>
+                </ul>
+                <p>This agreement is a living document. We will review it regularly to ensure it evolves with your business needs.</p>
+            </div>
             
-            <h3>1. The Client Services Agreement: Clarity from Day One</h3>
-            <p>Before any work begins, we will co-create and sign a comprehensive Client Services Agreement (CSA). This document is not fine print; it is our shared blueprint for success, designed to eliminate any ambiguity. It clearly outlines:</p>
-            <ul>
-                <li><strong>Scope of Work:</strong> A detailed description of the specific tasks, projects, and responsibilities I will manage for you. This ensures we are perfectly aligned on expectations from the outset.</li>
-                <li><strong>Performance Metrics:</strong> How we will measure success (e.e., inbox zero maintained by EOD each day, 24-hour response time on assigned queries).</li>
-                <li><strong>Communication Protocols:</strong> Our preferred channels (e.e., Slack, email, Voxer), scheduled check-in times, and expected response windows for each of us.</li>
-                <li><strong>Core Working Hours:</strong> My standard availability within Philippine Standard Time (PST), with clear guidelines for urgent requests outside these hours.</li>
-                <li><strong>Revision Policy:</strong> The process for requesting adjustments or revisions to completed work.</li>
-            </ul>
-            <p>This agreement is a living document. We will review it regularly to ensure it evolves with your business needs.</p>
+            <div class="term-box">
+                <h3 class="term-title">2. Financial Transparency: Simplified & Secure Billing</h3>
+                <p>There will never be any surprises or informal payment requests. My financial system is designed for simplicity and professionalism.</p>
+                <ul>
+                    <li><strong>Official Invoicing:</strong> You will receive a detailed, itemized digital invoice for each billing cycle (typically monthly or quarterly). Each invoice will clearly list the services rendered, the hours dedicated (if applicable), and the total amount due.</li>
+                    <li><strong>Secure Payment Methods:</strong> All payments are processed through secure, international platforms like Wise, PayPal, or Stripe. These channels offer buyer protection and secure transaction processing. I will never ask for a direct bank transfer or payment through an unsecured method.</li>
+                    <li><strong>Clear Payment Terms:</strong> Invoices will specify a clear due date (e.g., Net 7 or Net 15) and any late payment policies, ensuring smooth cash flow for both of us.</li>
+                    <li><strong>No Hidden Fees:</strong> The price we agree upon is the price you pay. Any potential additional costs for premium software subscriptions or other tools will be discussed and approved by you in advance.</li>
+                </ul>
+            </div>
             
-            <h3>2. Financial Transparency: Simplified & Secure Billing</h3>
-            <p>There will never be any surprises or informal payment requests. My financial system is designed for simplicity and professionalism.</p>
-            <ul>
-                <li><strong>Official Invoicing:</strong> You will receive a detailed, itemized digital invoice for each billing cycle (typically monthly or quarterly). Each invoice will clearly list the services rendered, the hours dedicated (if applicable), and the total amount due.</li>
-                <li><strong>Secure Payment Methods:</strong> All payments are processed through secure, international platforms like Wise, PayPal, or Stripe. These channels offer buyer protection and secure transaction processing. I will never ask for a direct bank transfer or payment through an unsecured method.</li>
-                <li><strong>Clear Payment Terms:</strong> Invoices will specify a clear due date (e.e., Net 7 or Net 15) and any late payment policies, ensuring smooth cash flow for both of us.</li>
-                <li><strong>No Hidden Fees:</strong> The price we agree upon is the price you pay. Any potential additional costs for premium software subscriptions or other tools will be discussed and approved by you in advance.</li>
-            </ul>
+            <div class="term-box">
+                <h3 class="term-title">3. Jurisdiction & Legal Framework: The Security of Philippine Law</h3>
+                <p>Our formal working relationship is governed by the clear and robust legal framework of the Republic of the Philippines.</p>
+                <ul>
+                    <li><strong>Professional Standards:</strong> The Philippines has a world-renowned and mature outsourcing industry. The legal system provides a strong, predictable framework for professional service contracts, protecting both the service provider and the client.</li>
+                    <li><strong>Data Privacy Compliance:</strong> I strictly adhere to the Philippine Data Privacy Act of 2012 (RA 10173), which is based on stringent international standards (like GDPR). This means your personal and business data is handled with the highest level of confidentiality and security. My systems are designed to protect your information from unauthorized access, disclosure, or misuse.</li>
+                    <li><strong>Clear Dispute Resolution:</strong> The CSA will include a clause outlining the steps for resolving any potential disputes, typically beginning with meditation and arbitration under Philippine jurisdiction. This provides a clear, fair, and professional path forward should any issues ever arise, though my primary goal is to ensure they never do.</li>
+                </ul>
+            </div>
             
-            <h3>3. Jurisdiction & Legal Framework: The Security of Philippine Law</h3>
-            <p>Our formal working relationship is governed by the clear and robust legal framework of the Republic of the Philippines.</p>
-            <ul>
-                <li><strong>Professional Standards:</strong> The Philippines has a world-renowned and mature outsourcing industry. The legal system provides a strong, predictable framework for professional service contracts, protecting both the service provider and the client.</li>
-                <li><strong>Data Privacy Compliance:</strong> I strictly adhere to the Philippine Data Privacy Act of 2012 (RA 10173), which is based on stringent international standards (like GDPR). This means your personal and business data is handled with the highest level of confidentiality and security. My systems are designed to protect your information from unauthorized access, disclosure, or misuse.</li>
-                <li><strong>Clear Dispute Resolution:</strong> The CSA will include a clause outlining the steps for resolving any potential disputes, typically beginning with meditation and arbitration under Philippine jurisdiction. This provides a clear, fair, and professional path forward should any issues ever arise, though my primary goal is to ensure they never do.</li>
-            </ul>
+            <div class="term-box">
+                <h3 class="term-title">4. Confidentiality & Data Security: Your Information is Protected</h3>
+                <p>Your business secrets are safe with me. From the moment we sign our agreement, you have my unwavering commitment to confidentiality.</p>
+                <ul>
+                    <li><strong>Non-Disclosure Agreement (NDA):</strong> A comprehensive mutual NDA is integrated into our Client Services Agreement. This legally binds me to protect all your proprietary information, business strategies, client lists, and any other sensitive data.</li>
+                    <li><strong>Ethical Standards:</strong> I operate with unwavering integrity. I will never use or share your information for any purpose other than fulfilling my duties to you.</li>
+                    <li><strong>Secure Tools:</strong> I use password-managed, encrypted communication and project management tools (like LastPass, Signal, or standard industry platforms) to ensure all client data remains secure.</li>
+                </ul>
+            </div>
             
-            <h3>4. Confidentiality & Data Security: Your Information is Protected</h3>
-            <p>Your business secrets are safe with me. From the moment we sign our agreement, you have my unwavering commitment to confidentiality.</p>
-            <ul>
-                <li><strong>Non-Disclosure Agreement (NDA):</strong> A comprehensive mutual NDA is integrated into our Client Services Agreement. This legally binds me to protect all your proprietary information, business strategies, client lists, and any other sensitive data.</li>
-                <li><strong>Ethical Standards:</strong> I operate with unwavering integrity. I will never use or share your information for any purpose other than fulfilling my duties to you.</li>
-                <li><strong>Secure Tools:</strong> I use password-managed, encrypted communication and project management tools (like LastPass, Signal, or standard industry platforms) to ensure all client data remains secure.</li>
-            </ul>
-            
-            <h3>Your Peace of Mind is My Priority</h3>
-            <p>My goal is to remove your administrative stress, not add to it. This structured, transparent, and legally sound framework is the bedrock of my service. It allows us to build a productive, long-term partnership where you can focus on growth, knowing the operational details are handled with professionalism and integrity.</p>
-            
-            <p>Ready to work with complete confidence?</p>
-            <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Let's discuss your needs and review a sample agreement</a>
+            <div class="term-box">
+                <h3 class="term-title">Your Peace of Mind is My Priority</h3>
+                <p>My goal is to remove your administrative stress, not add to it. This structured, transparent, and legally sound framework is the bedrock of my service. It allows us to build a productive, long-term partnership where you can focus on growth, knowing the operational details are handled with professionalism and integrity.</p>
+                <p>Ready to work with complete confidence?</p>
+                <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Let's discuss your needs and review a sample agreement</a>
+            </div>
         </div>
     </section>
     
@@ -1179,7 +1253,7 @@
             <ul>
                 <li><strong>Access:</strong> Request a copy of the personal data I hold about you.</li>
                 <li><strong>Correction:</strong> Ask me to update or correct any inaccurate or incomplete information.</li>
-                <li><strong>Deletion:</strong> Request the deletion of your personal data, subject to certain legal or contractual obligations that may require me to retain specific records (e.e., for invoicing purposes under Philippine law).</li>
+                <li><strong>Deletion:</strong> Request the deletion of your personal data, subject to certain legal or contractual obligations that may require me to retain specific records (e.g., for invoicing purposes under Philippine law).</li>
                 <li><strong>Objection:</strong> Object to certain uses of your data, such as for direct marketing.</li>
             </ul>
             <p>To exercise any of these rights, please contact me directly via this site, and I will respond promptly.</p>
@@ -1193,10 +1267,10 @@
             </ul>
             
             <h3>5. Use of Cookies and Site Analytics</h3>
-            <p>This website may use "cookies" – small text files stored on your device – to enhance your experience. These are used for essential functions and to collect non-personal, anonymized data (e.e., browser type, pages visited, time spent on site). This analytics data helps me understand how the site is used and where I can improve its performance and content. You can control cookie settings through your own browser preferences.</p>
+            <p>This website may use "cookies" – small text files stored on your device – to enhance your experience. These are used for essential functions and to collect non-personal, anonymized data (e.g., browser type, pages visited, time spent on site). This analytics data helps me understand how the site is used and where I can improve its performance and content. You can control cookie settings through your own browser preferences.</p>
             
             <h3>6. Third-Party Sharing: Partners in Confidentiality</h3>
-            <p>I only share your data with a select group of trusted third-party service providers when necessary to perform business functions (e.e., using Calendly for scheduling, QuickBooks for invoicing, or Google Workspace for file storage). Each provider is rigorously vetted and is bound by strict confidentiality and data processing agreements to ensure they protect your information to the same standard I do. I never sell, rent, or trade your personal data to any third parties for marketing or any other purposes.</p>
+            <p>I only share your data with a select group of trusted third-party service providers when necessary to perform business functions (e.g., using Calendly for scheduling, QuickBooks for invoicing, or Google Workspace for file storage). Each provider is rigorously vetted and is bound by strict confidentiality and data processing agreements to ensure they protect your information to the same standard I do. I never sell, rent, or trade your personal data to any third parties for marketing or any other purposes.</p>
             
             <h3>7. Contact Me</h3>
             <p>Your privacy is of utmost importance. If you have any questions, concerns, or requests regarding this privacy policy or how your data is handled, please do not hesitate to reach out to me directly via the contact form on this site.</p>
@@ -1273,13 +1347,13 @@
             <h3>1. Official Payment Policy:</h3>
             <ul>
                 <li>I will NEVER, under any circumstances, request payments, bank transfers, or sensitive financial information (like credit card numbers) through direct messages (DMs), social media channels, or unofficial email.</li>
-                <li>All invoices will be issued formally and exclusively through my secured business management platforms (e.e., Wise, PayPal, QuickBooks) with detailed line items and professional branding.</li>
+                <li>All invoices will be issued formally and exclusively through my secured business management platforms (e.g., Wise, PayPal, QuickBooks) with detailed line items and professional branding.</li>
             </ul>
             
             <h3>2. Personal Information Safety:</h3>
             <ul>
                 <li>I will NEVER ask for your passwords, government-issued ID numbers, or other highly sensitive personal data via DM or email.</li>
-                <li>If access to an account is required for task execution (e.e., social media login), we will use a secure, encrypted password manager (like LastPass or 1Password) for sharing credentials, and I strongly recommend enabling two-factor authentication (2FA) on all shared accounts.</li>
+                <li>If access to an account is required for task execution (e.g., social media login), we will use a secure, encrypted password manager (like LastPass or 1Password) for sharing credentials, and I strongly recommend enabling two-factor authentication (2FA) on all shared accounts.</li>
             </ul>
             
             <h3>3. The Only Way to Officially Inquire or Book:</h3>
