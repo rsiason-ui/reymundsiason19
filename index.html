@@ -676,6 +676,117 @@
             color: var(--champagne-ivory);
         }
         
+        /* NEW: Gold Button Styles for Contact Page */
+        .gold-button-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .luxury-gold-button {
+            display: inline-block;
+            padding: 1.2em 2.5em;
+            border-radius: 0.3em;
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4),
+                        inset 0 -2px 5px 1px rgba(139,66,8,1),
+                        inset 0 -1px 1px 3px rgba(250,227,133,1);
+            background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
+            border: 1px solid #a55d07;
+            color: rgb(120,50,5);
+            text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            background-size: 100% 100%;
+            background-position:center;
+            min-width: 280px;
+        }
+        
+        .luxury-gold-button:focus,
+        .luxury-gold-button:hover {
+            background-size: 150% 150%;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23),
+                        inset 0 -2px 5px 1px #b17d10,
+                        inset 0 -1px 1px 3px rgba(250,227,133,1);
+            border: 1px solid rgba(165,93,7,.6);
+            color: rgba(120,50,5,.8);
+            transform: translateY(-2px);
+        }
+        
+        .luxury-gold-button:active {
+            box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4),
+                        inset 0 -2px 5px 1px #b17d10,
+                        inset 0 -1px 1px 3px rgba(250,227,133,1);
+            transform: translateY(1px);
+        }
+        
+        /* NEW: Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(5, 5, 24, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-container {
+            background: rgba(10, 10, 42, 0.95);
+            border: 2px solid var(--metallic-gold);
+            border-radius: 8px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--metallic-gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            transform: rotate(90deg);
+            color: var(--champagne-ivory);
+        }
+        
+        .modal-title {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--metallic-gold);
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2rem;
+        }
+        
         /* Responsive Design */
         @media (max-width: 1024px) {
             h1 {
@@ -832,6 +943,17 @@
             .contact-divider {
                 display: block;
             }
+            
+            .gold-button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .luxury-gold-button {
+                min-width: 250px;
+                font-size: 1.1rem;
+                padding: 1em 2em;
+            }
         }
         
         @media (max-width: 480px) {
@@ -905,6 +1027,20 @@
             
             .contact-section, .newsletter-section {
                 padding: 20px;
+            }
+            
+            .luxury-gold-button {
+                min-width: 220px;
+                font-size: 1rem;
+                padding: 0.9em 1.8em;
+            }
+            
+            .modal-container {
+                padding: 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -1506,49 +1642,22 @@
         </div>
     </section>
     
+    <!-- NEW: Contact Section with Gold Buttons -->
     <section id="contact">
         <h2>Contact & Newsletter</h2>
         <div class="content-box" style="text-align: center;">
             <p>Ready to connect and grow? Whether you'd like to start a conversation about how I can support your productivity, or join my newsletter for insights and strategies — you're in the right place.</p>
         </div>
         
-        <div class="contact-container">
-            <!-- Contact Form Section -->
-            <div class="contact-section">
-                <h3 style="text-align: center; color: var(--metallic-gold);">Contact Me</h3>
-                <p style="text-align: center;">Fill out the form below and I'll get back to you shortly.</p>
-                
-                <!-- Contact Form Iframe -->
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZ7n9eDtUfv7Mg2iWf-v2x09SNz0bmxUmmmZpvpbVuTjmzMg/viewform?embedded=true" 
-                        class="form-iframe" 
-                        height="954" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0"
-                        style="background: #fff;">
-                    Loading…
-                </iframe>
-            </div>
+        <!-- Gold Button Container -->
+        <div class="gold-button-container">
+            <button class="luxury-gold-button" id="contact-button">
+                <i class="fas fa-envelope"></i> Contact Me
+            </button>
             
-            <!-- Divider for mobile view -->
-            <div class="contact-divider"></div>
-            
-            <!-- Newsletter Section -->
-            <div class="newsletter-section">
-                <h3 style="text-align: center; color: var(--metallic-gold);">Join My Newsletter</h3>
-                <p style="text-align: center;">Subscribe to my newsletter and get productivity tips, delegation strategies, and digital growth hacks straight to your inbox.</p>
-                
-                <!-- Newsletter Form Iframe -->
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSccNopLCd1YIrRsYjueiZFsPQ0GSzqkcfnDSJ_-Q5vLVrFv4A/viewform?embedded=true" 
-                        class="form-iframe" 
-                        height="892" 
-                        frameborder="0" 
-                        marginheight="0" 
-                        marginwidth="0"
-                        style="background: #fff;">
-                    Loading…
-                </iframe>
-            </div>
+            <button class="luxury-gold-button" id="newsletter-button">
+                <i class="fas fa-newspaper"></i> Join Newsletter
+            </button>
         </div>
         
         <!-- Alternative Contact Method -->
@@ -1562,6 +1671,44 @@
             </div>
         </div>
     </section>
+    
+    <!-- NEW: Modal for Contact Form -->
+    <div class="modal-overlay" id="contact-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="contact-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="modal-title">Contact Me</h3>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZ7n9eDtUfv7Mg2iWf-v2x09SNz0bmxUmmmZpvpbVuTjmzMg/viewform?embedded=true" 
+                    width="100%" 
+                    height="954" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="background: #fff;">
+                Loading…
+            </iframe>
+        </div>
+    </div>
+    
+    <!-- NEW: Modal for Newsletter Form -->
+    <div class="modal-overlay" id="newsletter-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="newsletter-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="modal-title">Join My Newsletter</h3>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSccNopLCd1YIrRsYjueiZFsPQ0GSzqkcfnDSJ_-Q5vLVrFv4A/viewform?embedded=true" 
+                    width="100%" 
+                    height="892" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    style="background: #fff;">
+                Loading…
+            </iframe>
+        </div>
+    </div>
     
     <!-- Footer -->
     <footer>
@@ -1683,6 +1830,48 @@
             
             // Fetch testimonials from Google Sheets
             fetchTestimonials();
+            
+            // NEW: Modal functionality
+            const contactButton = document.getElementById('contact-button');
+            const newsletterButton = document.getElementById('newsletter-button');
+            const contactModal = document.getElementById('contact-modal');
+            const newsletterModal = document.getElementById('newsletter-modal');
+            const contactClose = document.getElementById('contact-close');
+            const newsletterClose = document.getElementById('newsletter-close');
+            
+            // Open contact modal
+            contactButton.addEventListener('click', function() {
+                contactModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+            
+            // Open newsletter modal
+            newsletterButton.addEventListener('click', function() {
+                newsletterModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+            
+            // Close contact modal
+            contactClose.addEventListener('click', function() {
+                contactModal.classList.remove('active');
+                document.body.style.overflow = ''; // Enable scrolling
+            });
+            
+            // Close newsletter modal
+            newsletterClose.addEventListener('click', function() {
+                newsletterModal.classList.remove('active');
+                document.body.style.overflow = ''; // Enable scrolling
+            });
+            
+            // Close modal when clicking outside
+            [contactModal, newsletterModal].forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = ''; // Enable scrolling
+                    }
+                });
+            });
         });
         
         // Function to fetch weather data for Roxas City
