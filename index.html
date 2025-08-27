@@ -587,6 +587,49 @@
             background: linear-gradient(90deg, transparent, var(--metallic-gold), transparent);
         }
         
+        /* New Testimonial Styles */
+        .testimonial-card {
+            background: rgba(5, 5, 24, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        
+        .testimonial-text {
+            color: var(--champagne-ivory);
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            color: var(--metallic-gold);
+            font-weight: bold;
+            text-align: right;
+            font-size: 1rem;
+        }
+        
+        .testimonial-form-button {
+            display: block;
+            margin: 30px auto;
+            text-align: center;
+        }
+        
+        .testimonial-loading {
+            text-align: center;
+            padding: 30px;
+            color: var(--metallic-gold);
+        }
+        
         /* Responsive Design */
         @media (max-width: 1024px) {
             h1 {
@@ -729,6 +772,10 @@
             .term-title {
                 font-size: 1.5rem;
             }
+            
+            .testimonial-card {
+                padding: 20px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -790,6 +837,14 @@
             
             .term-title {
                 font-size: 1.4rem;
+            }
+            
+            .testimonial-card {
+                padding: 15px;
+            }
+            
+            .testimonial-text {
+                font-size: 1rem;
             }
         }
     </style>
@@ -1023,7 +1078,7 @@
         <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Book Your Free Consultation to Discuss Delegation Strategies</a>
     </section>
     
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section - Updated with Google Sheets Integration -->
     <section id="testimonials">
         <h2>Client Testimonials</h2>
         
@@ -1038,10 +1093,25 @@
             <p>Leave your testimonial below — it only takes a moment! Your review will be posted shortly after approval.</p>
             <p class="testimonial-note">Thank you for supporting my small business and helping it grow!</p>
             
-            <!-- FameWall Testimonial Widget -->
-            <script type="text/javascript" src="https://page.famewall.io/iframeResizer.min.js"></script>
-            <iframe id="famewall-collection-embed" src="https://page.famewall.io/reymundsiason19?widget-embed=1" allow="camera;microphone" frameborder="0" scrolling="no" width="100%" style="min-height: 500px;"></iframe>
-            <script type="text/javascript">iFrameResize({log: false, checkOrigin: false}, "#famewall-collection-embed");</script>
+            <!-- Button to add testimonial -->
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScKrDVBfXZF8pzl-mGgSTdUZAzOhx1mv1u7_nOu2ifs2V1rxg/viewform?usp=header"
+                   target="_blank"
+                   class="gold-button" style="display: inline-block; text-decoration: none;">
+                   + Leave Your Testimonial
+                </a>
+                <p style="font-size: 14px; color: var(--metallic-gold); margin-top: 8px;">
+                    Your testimonial will appear here automatically after submission.
+                </p>
+            </div>
+            
+            <!-- Testimonials list -->
+            <div id="testimonial-list">
+                <div class="testimonial-loading">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                    <p>Loading testimonials...</p>
+                </div>
+            </div>
         </div>
         
         <div class="content-box testimonial-cta">
@@ -1253,7 +1323,7 @@
             <ul>
                 <li><strong>Access:</strong> Request a copy of the personal data I hold about you.</li>
                 <li><strong>Correction:</strong> Ask me to update or correct any inaccurate or incomplete information.</li>
-                <li><strong>Deletion:</strong> Request the deletion of your personal data, subject to certain legal or contractual obligations that may require me to retain specific records (e.g., for invoicing purposes under Philippine law).</li>
+                <li><strong>Deletion:</strong> Request the deletion of your personal data, subject to certain legal or contractual obligations that may require me to retain specific records (e.e., for invoicing purposes under Philippine law).</li>
                 <li><strong>Objection:</strong> Object to certain uses of your data, such as for direct marketing.</li>
             </ul>
             <p>To exercise any of these rights, please contact me directly via this site, and I will respond promptly.</p>
@@ -1527,6 +1597,9 @@
             
             // Weather API for Roxas City
             fetchWeatherData();
+            
+            // Fetch testimonials from Google Sheets
+            fetchTestimonials();
         });
         
         // Function to fetch weather data for Roxas City
@@ -1554,33 +1627,47 @@
                 <p><strong>Humidity:</strong> ${mockWeatherData.humidity}%</p>
                 <p><strong>Wind Speed:</strong> ${mockWeatherData.windSpeed} m/s</p>
             `;
+        }
+        
+        // Function to fetch testimonials from Google Sheets
+        async function fetchTestimonials() {
+            const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSSX2ZSqsWlRMuaxJje6R8rU2WCk9pquDxVkM1WirTXf-HpLha5IHqiz3VWrQ-12puAnHtDLd_AjAxg/pub?gid=851136831&single=true&output=csv";
+            const container = document.getElementById("testimonial-list");
             
-            // Uncomment and use this code if you have a real API key:
-            /*
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric`)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.cod === 200) {
-                        const temperature = Math.round(data.main.temp);
-                        const description = data.weather[0].description;
-                        const humidity = data.main.humidity;
-                        const windSpeed = data.wind.speed;
-                        
-                        weatherDataElement.innerHTML = `
-                            <p><strong>Temperature:</strong> ${temperature}°C</p>
-                            <p><strong>Conditions:</strong> ${description}</p>
-                            <p><strong>Humidity:</strong> ${humidity}%</p>
-                            <p><strong>Wind Speed:</strong> ${windSpeed} m/s</p>
-                        `;
-                    } else {
-                        weatherDataElement.innerHTML = `<p>Weather information currently unavailable</p>`;
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching weather data:', error);
-                    weatherDataElement.innerHTML = `<p>Weather information currently unavailable</p>`;
+            try {
+                const response = await fetch(sheetUrl);
+                const data = await response.text();
+                const rows = data.split("\n").slice(1); // skip headers
+                
+                // Clear loading message
+                container.innerHTML = '';
+                
+                if (rows.length === 0 || (rows.length === 1 && rows[0].trim() === '')) {
+                    container.innerHTML = '<p style="text-align: center; color: var(--metallic-gold);">No testimonials yet. Be the first to share your experience!</p>';
+                    return;
+                }
+                
+                // Process each testimonial
+                rows.forEach(row => {
+                    if (!row.trim()) return; // Skip empty rows
+                    
+                    const [timestamp, name, testimonial] = row.split(",");
+                    
+                    if (!name || !testimonial) return;
+                    
+                    const card = document.createElement("div");
+                    card.className = "testimonial-card";
+                    card.innerHTML = `
+                        <p class="testimonial-text">"${testimonial.trim()}"</p>
+                        <p class="testimonial-author">– ${name.trim()}</p>
+                    `;
+                    
+                    container.appendChild(card);
                 });
-            */
+            } catch (error) {
+                console.error("Error fetching testimonials:", error);
+                container.innerHTML = '<p style="text-align: center; color: var(--metallic-gold);">Unable to load testimonials at this time. Please try again later.</p>';
+            }
         }
     </script>
 </body>
