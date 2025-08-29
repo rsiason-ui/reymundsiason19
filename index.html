@@ -676,115 +676,24 @@
             color: var(--champagne-ivory);
         }
         
-        /* NEW: Gold Button Styles for Contact Page */
-        .gold-button-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-        
-        .luxury-gold-button {
-            display: inline-block;
-            padding: 1.2em 2.5em;
-            border-radius: 0.3em;
-            font-family: 'Bodoni Moda', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4),
-                        inset 0 -2px 5px 1px rgba(139,66,8,1),
-                        inset 0 -1px 1px 3px rgba(250,227,133,1);
-            background-image: linear-gradient(160deg, #a54e07, #b47e11, #fef1a2, #bc881b, #a54e07);
-            border: 1px solid #a55d07;
-            color: rgb(120,50,5);
-            text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
-            cursor: pointer;
-            transition: all .2s ease-in-out;
-            background-size: 100% 100%;
-            background-position:center;
-            min-width: 280px;
-        }
-        
-        .luxury-gold-button:focus,
-        .luxury-gold-button:hover {
-            background-size: 150% 150%;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23),
-                        inset 0 -2px 5px 1px #b17d10,
-                        inset 0 -1px 1px 3px rgba(250,227,133,1);
-            border: 1px solid rgba(165,93,7,.6);
-            color: rgba(120,50,5,.8);
-            transform: translateY(-2px);
-        }
-        
-        .luxury-gold-button:active {
-            box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(110,80,20,.4),
-                        inset 0 -2px 5px 1px #b17d10,
-                        inset 0 -1px 1px 3px rgba(250,227,133,1);
-            transform: translateY(1px);
-        }
-        
-        /* NEW: Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(5, 5, 24, 0.95);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .modal-container {
-            background: rgba(10, 10, 42, 0.95);
-            border: 2px solid var(--metallic-gold);
-            border-radius: 8px;
-            width: 90%;
-            max-width: 700px;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
+        /* Form Styles */
+        .contact-form-container {
+            background: rgba(5, 5, 24, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 5px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            margin-top: 40px;
         }
         
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: var(--metallic-gold);
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .modal-close:hover {
-            transform: rotate(90deg);
-            color: var(--champagne-ivory);
-        }
-        
-        .modal-title {
+        .success-message {
             text-align: center;
-            margin-bottom: 25px;
-            color: var(--metallic-gold);
-            font-family: 'Bodoni Moda', serif;
-            font-size: 2rem;
+            padding: 20px;
+            background: rgba(0, 128, 0, 0.2);
+            border: 1px solid rgba(0, 200, 0, 0.3);
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
         }
         
         /* Responsive Design */
@@ -944,15 +853,8 @@
                 display: block;
             }
             
-            .gold-button-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .luxury-gold-button {
-                min-width: 250px;
-                font-size: 1.1rem;
-                padding: 1em 2em;
+            .contact-form-container {
+                padding: 20px;
             }
         }
         
@@ -1025,22 +927,8 @@
                 font-size: 1rem;
             }
             
-            .contact-section, .newsletter-section {
-                padding: 20px;
-            }
-            
-            .luxury-gold-button {
-                min-width: 220px;
-                font-size: 1rem;
-                padding: 0.9em 1.8em;
-            }
-            
-            .modal-container {
-                padding: 20px;
-            }
-            
-            .modal-title {
-                font-size: 1.6rem;
+            .contact-form-container {
+                padding: 15px;
             }
         }
     </style>
@@ -1073,7 +961,7 @@
                 <li><a href="#" data-section="testimonials">Testimonials</a></li>
                 <li><a href="#" data-section="faq">FAQ</a></li>
                 <li><a href="#" data-section="terms">Terms</a></li>
-                <li><a href="#" data-section="contact" style="color: var(--metallic-gold); font-weight: 600;">Contact & Newsletter</a></li>
+                <li><a href="#" data-section="contact" style="color: var(--metallic-gold); font-weight: 600;">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -1477,7 +1365,7 @@
                 <ul>
                     <li><strong>Non-Disclosure Agreement (NDA):</strong> A comprehensive mutual NDA is integrated into our Client Services Agreement. This legally binds me to protect all your proprietary information, business strategies, client lists, and any other sensitive data.</li>
                     <li><strong>Ethical Standards:</strong> I operate with unwavering integrity. I will never use or share your information for any purpose other than fulfilling my duties to you.</li>
-                    <li><strong>Secure Tools:</strong> I use password-managed, encrypted communication and project management tools (like LastPass, Signal, or standard industry platforms) to ensure all client data remains secure.</li>
+                    <li><strong>Secure Tools:</strong> I use password-managed, encrypted communication and project management tools (like LastPass, Signal or standard industry platforms) to ensure all client data remains secure.</li>
                 </ul>
             </div>
             
@@ -1490,174 +1378,37 @@
         </div>
     </section>
     
-    <section id="privacy">
-        <h2>Privacy Notice</h2>
-        <div class="content-box">
-            <p>Your trust is the foundation of our working relationship. I am deeply committed to protecting your privacy and handling your personal information with the highest standards of care and confidentiality. This policy outlines how I collect, use, and safeguard your data, ensuring you always remain in control.</p>
-            
-            <h3>1. The Information I Collect: Minimizing Data for Maximum Respect</h3>
-            <p>I adhere to the principle of data minimization, meaning I only collect information that is absolutely essential for us to work together effectively and fulfill my contractual obligations to you.</p>
-            <p>This typically includes:</p>
-            <ul>
-                <li><strong>Identifiers:</strong> Your full name, email address, and business name.</li>
-                <li><strong>Contact & Billing Details:</strong> Your business address and other necessary details for invoicing and communication.</li>
-                <li><strong>Business Information:</strong> Details about your business operations, goals, and clientele that are required to provide tailored support services.</li>
-                <li><strong>Credentials:</strong> Passwords or access details to tools required for task execution (e.e., social media logins, email access). These are handled with extreme caution and stored exclusively in a secure, encrypted password manager. I strongly recommend using a secure sharing method and enabling 2-factor authentication (2FA) on all accounts for our mutual security.</li>
-            </ul>
-            
-            <h3>2. How I Use Your Information: Purpose-Limited and Transparent</h3>
-            <p>Your data is used solely for legitimate business purposes to ensure I can deliver the high-quality service you expect. This includes:</p>
-            <ul>
-                <li><strong>Service Delivery:</strong> To manage your inbox, schedule, and other tasks as outlined in our agreement.</li>
-                <li><strong>Communication:</strong> To send you updates, invoices, and important information regarding our work together.</li>
-                <li><strong>Improvement:</strong> To analyze non-personal, aggregated data to improve the efficiency and quality of my services.</li>
-                <li><strong>Security:</strong> To verify your identity and protect our accounts from unauthorized access or fraud.</li>
-            </ul>
-            
-            <h3>3. Your Rights: You Are in Control</h3>
-            <p>You have complete control over your personal information. At any time, you have the right to:</p>
-            <ul>
-                <li><strong>Access:</strong> Request a copy of the personal data I hold about you.</li>
-                <li><strong>Correction:</strong> Ask me to update or correct any inaccurate or incomplete information.</li>
-                <li><strong>Deletion:</strong> Request the deletion of your personal data, subject to certain legal or contractual obligations that may require me to retain specific records (e.e., for invoicing purposes under Philippine law).</li>
-                <li><strong>Objection:</strong> Object to certain uses of your data, such as for direct marketing.</li>
-            </ul>
-            <p>To exercise any of these rights, please contact me directly via this site, and I will respond promptly.</p>
-            
-            <h3>4. Data Storage and Security: Protecting What You Entrust to Me</h3>
-            <p>I implement robust technical and organizational measures to keep your data secure:</p>
-            <ul>
-                <li><strong>Encryption:</strong> Sensitive data is encrypted at rest and in transit using industry-standard protocols.</li>
-                <li><strong>Secure Tools:</strong> I only use reputable, secure software and cloud services (like Google Drive, Dropbox, etc.) that comply with major data protection regulations.</li>
-                <li><strong>Access Control:</strong> Your data is accessible only to me and is protected by strong, unique passwords and two-factor authentication wherever possible.</li>
-            </ul>
-            
-            <h3>5. Use of Cookies and Site Analytics</h3>
-            <p>This website may use "cookies" – small text files stored on your device – to enhance your experience. These are used for essential functions and to collect non-personal, anonymized data (e.e., browser type, pages visited, time spent on site). This analytics data helps me understand how the site is used and where I can improve its performance and content. You can control cookie settings through your own browser preferences.</p>
-            
-            <h3>6. Third-Party Sharing: Partners in Confidentiality</h3>
-            <p>I only share your data with a select group of trusted third-party service providers when necessary to perform business functions (e.e., using Calendly for scheduling, QuickBooks for invoicing, or Google Workspace for file storage). Each provider is rigorously vetted and is bound by strict confidentiality and data processing agreements to ensure they protect your information to the same standard I do. I never sell, rent, or trade your personal data to any third parties for marketing or any other purposes.</p>
-            
-            <h3>7. Contact Me</h3>
-            <p>Your privacy is of utmost importance. If you have any questions, concerns, or requests regarding this privacy policy or how your data is handled, please do not hesitate to reach out to me directly via the contact form on this site.</p>
-            <p>I am committed to working with you to ensure you feel confident and secure in our partnership.</p>
-        </div>
-    </section>
-    
-    <section id="ip">
-        <h2>Intellectual Property</h2>
-        <div class="content-box">
-            <p>A successful partnership is built on clarity and trust, especially when it comes to ownership of creative work and sensitive materials. This Intellectual Property (IP) clause is designed to protect both of us, ensuring there is no ambiguity about who owns what. My fundamental principle is simple: your assets are yours, my assets are mine, and we both grant the rights necessary for a productive collaboration.</p>
-            
-            <h3>1. My Intellectual Property (The "Tools of My Trade")</h3>
-            <p>I have developed proprietary systems, processes, and materials that allow me to deliver high-quality service efficiently. These assets remain my exclusive property.</p>
-            <p>This includes, but is not limited to:</p>
-            <ul>
-                <li><strong>Pre-existing Templates & Frameworks:</strong> Email templates, workflow checklists, standard operating procedures (SOPs), project management boards, and onboarding systems I created before our engagement.</li>
-                <li><strong>Methodologies & Processes:</strong> The unique ways I organize information, manage projects, and optimize workflows.</li>
-                <li><strong>Website & Marketing Content:</strong> All original text, copy, articles, graphics, and design elements on this website and associated marketing materials.</li>
-            </ul>
-            <p>Why this matters: This protects the investment I have made in developing my business tools. You benefit from these refined systems, but the underlying IP remains with me to use in serving other clients.</p>
-            
-            <h3>2. Your Intellectual Property (Your "Crown Jewels")</h3>
-            <p>Your business assets are sacred. Any materials, data, or confidential information you share with me remain 100% your property.</p>
-            <p>This includes, but is not limited to:</p>
-            <ul>
-                <li><strong>Brand Assets:</strong> Your logos, trademarks, brand names, color schemes, and brand guidelines.</li>
-                <li><strong>Business Data:</strong> Your customer lists, prospect information, financial data, and internal documents.</li>
-                <li><strong>Creative Content:</strong> Your website content, marketing copy, course materials, product designs, and any other content you created.</li>
-                <li><strong>Confidential Information:</strong> Any trade secrets, business strategies, or proprietary information you disclose.</li>
-            </ul>
-            <p>Why this matters: This guarantees that you retain complete ownership and control over everything that makes your business unique. I act as a steward of your IP, using it solely for the purpose of fulfilling our agreement.</p>
-            
-            <h3>3. Deliverables & Work Product (The "Finished Work")</h3>
-            <p>This section defines the ownership of the specific outputs I create for you during our engagement.</p>
-            <ul>
-                <li><strong>Final Paid Work Product:</strong> Any specific, customized deliverables that I create for you and that you pay for (e.e., a designed report, a researched document, a curated list, a managed social media campaign) become your property upon full payment. You are free to use, modify, and distribute these deliverables as you see fit for your business.</li>
-                <li><strong>My Underlying Systems & Frameworks:</strong> While the final deliverable is yours, the underlying, reusable systems, templates, or processes I may use or create to produce that deliverable remain my IP. However, I grant you a perpetual, royalty-free license to use those specific systems solely in conjunction with the deliverables you paid for.</li>
-            </ul>
-            
-            <h3>Example for Clarity:</h3>
-            <p>If I create a custom client onboarding process for you, the specific document with your company name and details is yours. The master template I developed and adapted for you remains my IP, but you have full lifetime rights to use your customized version.</p>
-            
-            <h3>4. Confidentiality & Mutual Respect</h3>
-            <p>This IP framework is underpinned by a mutual commitment to confidentiality, as outlined in our broader agreement. I will:</p>
-            <ul>
-                <li>Treat all of your intellectual property as strictly confidential.</li>
-                <li>Only use your materials for the explicit purpose of providing services to you.</li>
-                <li>Never replicate, repurpose, or resell your unique deliverables for another client.</li>
-            </ul>
-            <p>This ensures clarity, protects both our interests, and fosters a relationship based on professional respect and trust. By defining these boundaries from the start, we can collaborate with confidence and focus entirely on achieving your business goals.</p>
-        </div>
-    </section>
-    
-    <section id="social">
-        <h2>Official Social Media Accounts</h2>
-        <div class="content-box">
-            <p>To maintain a professional and secure environment, I operate exclusively through the official accounts and channels listed below. This clarity helps ensure you are always interacting with me and not an impersonator.</p>
-            
-            <h3>My Officially Verified Social Profiles:</h3>
-            <p>Connect with me, follow my content and reach out through these only confirmed channels:</p>
-            <ul>
-                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/reymundsiason19?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">/in/reymundsiason19</a> (For professional insights and networking)</li>
-                <li><strong>Facebook:</strong> /reymundsiason19 (For community updates)</li>
-                <li><strong>TikTok:</strong> @reymundsiason19 (For quick tips and trends)</li>
-                <li><strong>X (Twitter):</strong> @reymundsiason19 (For industry news and engagement)</li>
-                <li><strong>YouTube:</strong> @reymundsiason19 (For in-depth tutorials and vlogs)</li>
-                <li><strong>Pinterest:</strong> /reymundsiason19 (For visual resources and inspiration)</li>
-            </ul>
-            
-            <h3>🔒 Critical Security Protocol: Protecting Your Information</h3>
-            <p>Your security and peace of mind are my top priorities. Unfortunately, digital impersonation is a common threat. Please adhere to the following guidelines to ensure our interactions are always secure.</p>
-            
-            <h3>1. Official Payment Policy:</h3>
-            <ul>
-                <li>I will NEVER, under any circumstances, request payments, bank transfers, or sensitive financial information (like credit card numbers) through direct messages (DMs), social media channels, or unofficial email.</li>
-                <li>All invoices will be issued formally and exclusively through my secured business management platforms (e.e., Wise, PayPal, QuickBooks) with detailed line items and professional branding.</li>
-            </ul>
-            
-            <h3>2. Personal Information Safety:</h3>
-            <ul>
-                <li>I will NEVER ask for your passwords, government-issued ID numbers, or other highly sensitive personal data via DM or email.</li>
-                <li>If access to an account is required for task execution (e.e., social media login), we will use a secure, encrypted password manager (like LastPass or 1Password) for sharing credentials, and I strongly recommend enabling two-factor authentication (2FA) on all shared accounts.</li>
-            </ul>
-            
-            <h3>3. The Only Way to Officially Inquire or Book:</h3>
-            <ul>
-                <li>To avoid miscommunication and ensure your request is handled professionally, all official service inquiries, consultations, and bookings must be initiated through my official scheduling link:</li>
-            </ul>
-            <p>👉 <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">calendly.com/siasonra/choose-me-reymund-siason</a></p>
-            <p>This system ensures you are placed directly into my official client workflow and protects your information from being lost in informal DMs.</p>
-            
-            <h3>4. How to Verify and Report:</h3>
-            <p>If you receive a suspicious message from an account claiming to be me, especially one requesting payment or information, please:</p>
-            <ol>
-                <li>Do not respond.</li>
-                <li>Cross-check the profile URL with the list of verified accounts above.</li>
-                <li>Report the impersonating account to the platform immediately.</li>
-                <li>Notify me directly by booking a quick call via the official Calendly link above.</li>
-            </ol>
-            
-            <p>Thank you for your vigilance. These measures are in place to create a safe, trustworthy, and professional foundation for our partnership.</p>
-        </div>
-    </section>
-    
-    <!-- NEW: Contact Section with Gold Buttons -->
+    <!-- NEW: Contact Section with Form -->
     <section id="contact">
-        <h2>Contact & Newsletter</h2>
+        <h2>Contact Me</h2>
         <div class="content-box" style="text-align: center;">
-            <p>Ready to connect and grow? Whether you'd like to start a conversation about how I can support your productivity, or join my newsletter for insights and strategies — you're in the right place.</p>
+            <p>Ready to connect and grow? Fill out the form below to get in touch with me. I'm looking forward to hearing from you and discussing how I can support your productivity.</p>
         </div>
         
-        <!-- Gold Button Container -->
-        <div class="gold-button-container">
-            <button class="luxury-gold-button" id="contact-button">
-                <i class="fas fa-envelope"></i> Contact Me
-            </button>
+        <!-- Contact Form Container -->
+        <div class="contact-form-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="gold-button">Send Message</button>
+            </form>
             
-            <button class="luxury-gold-button" id="newsletter-button">
-                <i class="fas fa-newspaper"></i> Join Newsletter
-            </button>
+            <div class="success-message" id="successMessage">
+                ✅ Your message has been sent successfully. Thank you, <strong><span id="userName"></span></strong>! I’ll get back to you soon. – Reymund’s Digital Catalyst
+            </div>
         </div>
         
         <!-- Alternative Contact Method -->
@@ -1671,44 +1422,6 @@
             </div>
         </div>
     </section>
-    
-    <!-- NEW: Modal for Contact Form -->
-    <div class="modal-overlay" id="contact-modal">
-        <div class="modal-container">
-            <button class="modal-close" id="contact-close">
-                <i class="fas fa-times"></i>
-            </button>
-            <h3 class="modal-title">Contact Me</h3>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdZ7n9eDtUfv7Mg2iWf-v2x09SNz0bmxUmmmZpvpbVuTjmzMg/viewform?embedded=true" 
-                    width="100%" 
-                    height="954" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    style="background: #fff;">
-                Loading…
-            </iframe>
-        </div>
-    </div>
-    
-    <!-- NEW: Modal for Newsletter Form -->
-    <div class="modal-overlay" id="newsletter-modal">
-        <div class="modal-container">
-            <button class="modal-close" id="newsletter-close">
-                <i class="fas fa-times"></i>
-            </button>
-            <h3 class="modal-title">Join My Newsletter</h3>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSccNopLCd1YIrRsYjueiZFsPQ0GSzqkcfnDSJ_-Q5vLVrFv4A/viewform?embedded=true" 
-                    width="100%" 
-                    height="892" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    style="background: #fff;">
-                Loading…
-            </iframe>
-        </div>
-    </div>
     
     <!-- Footer -->
     <footer>
@@ -1831,46 +1544,50 @@
             // Fetch testimonials from Google Sheets
             fetchTestimonials();
             
-            // NEW: Modal functionality
-            const contactButton = document.getElementById('contact-button');
-            const newsletterButton = document.getElementById('newsletter-button');
-            const contactModal = document.getElementById('contact-modal');
-            const newsletterModal = document.getElementById('newsletter-modal');
-            const contactClose = document.getElementById('contact-close');
-            const newsletterClose = document.getElementById('newsletter-close');
+            // Contact form functionality
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+            const userNameSpan = document.getElementById('userName');
             
-            // Open contact modal
-            contactButton.addEventListener('click', function() {
-                contactModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            });
-            
-            // Open newsletter modal
-            newsletterButton.addEventListener('click', function() {
-                newsletterModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
-            });
-            
-            // Close contact modal
-            contactClose.addEventListener('click', function() {
-                contactModal.classList.remove('active');
-                document.body.style.overflow = ''; // Enable scrolling
-            });
-            
-            // Close newsletter modal
-            newsletterClose.addEventListener('click', function() {
-                newsletterModal.classList.remove('active');
-                document.body.style.overflow = ''; // Enable scrolling
-            });
-            
-            // Close modal when clicking outside
-            [contactModal, newsletterModal].forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal) {
-                        modal.classList.remove('active');
-                        document.body.style.overflow = ''; // Enable scrolling
-                    }
-                });
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = contactForm.querySelector('button');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Sending...";
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const firstName = formData.get('name').split(' ')[0];
+                
+                // Send data to Google Apps Script
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxp-8eY78uIN6__pwka6sFaXjdnPHCAWgX1J2gcNTzZIa8oOMznEUGvuZfSC9YCN2cyAw/exec';
+                
+                fetch(scriptURL, { method: 'POST', body: formData })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            // Show success message
+                            userNameSpan.textContent = firstName;
+                            successMessage.style.display = 'block';
+                            contactForm.reset();
+                            
+                            // Scroll to success message
+                            successMessage.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            alert('There was an error sending your message. Please try again.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('There was an error sending your message. Please try again.');
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    });
             });
         });
         
