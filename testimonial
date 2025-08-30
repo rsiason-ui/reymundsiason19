@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Testimonials</title>
+  <script type="module">
+    // Firebase SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBf-qtdiwnZBEPw9CubKuOyt6z7_QbIB_8",
+      authDomain: "testimonial-app-27971.firebaseapp.com",
+      projectId: "testimonial-app-27971",
+      storageBucket: "testimonial-app-27971.appspot.com",
+      messagingSenderId: "688760457675",
+      appId: "1:688760457675:web:7c604c4bf45337852f4e4e"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const testimonialsRef = collection(db, "testimonials");
+
+    async function loadTestimonials() {
+      const container = document.getElementById("testimonialList");
+      container.innerHTML = "<p style='color:#aaa'>Loading testimonials...</p>";
+      const snapshot = await getDocs(testimonialsRef);
+      container.innerHTML = "";
+      snapshot.forEach(docSnap => {
+        const data = docSnap.data();
+        const div = document.createElement("div");
+        div.classList.add("card", "testimonial-card");
+
+        const avatarUrl = data.avatar || `https://ui-avatars.com/api/?name=${encodeURIComponent(data.clientName)}&background=333&color=fff&size=64`;
+
+        div.innerHTML = `
+          <img src="${avatarUrl}" alt="avatar"/>
+          <div class="testimonial-content">
+            <h3>${data.clientName}</h3>
+            <p>${data.message}</p>
+            <strong>${"★".repeat(data.rating)}${"☆".repeat(5-data.rating)}</strong>
+            <br/>
+            <small>Status: ${data.approved ? "✅ Approved" : "⏳ Pending"}</small>
+          </div>
+        `;
+
+        // If admin is logged in show controls
+        if (window.isAdmin) {
+          const controls = document.createElement("div");
+          controls.innerHTML = `
+            <button class="btn-approve">Approve</button>
+            <button class="btn-delete">Delete</button>
+          `;
+          controls.querySelector(".btn-approve").onclick = async () => {
+            await updateDoc(doc(db, "testimonials", docSnap.id), { approved: true });
+            loadTestimonials();
+          };
+          controls.querySelector(".btn-delete").onclick = async () => {
+            await deleteDoc(doc(db, "testimonials", docSnap.id));
+            loadTestimonials();
+          };
+          div.appendChild(controls);
+        }
+
+        container.appendChild(div);
+      });
+    }
+
+    window.submitTestimonial = async function() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const rating = document.querySelector("input[name='rating']:checked")?.value;
+
+      if (!name || !email || !message || !rating) {
+        alert("Please fill all fields and select a rating.");
+        return;
+      }
+
+      document.getElementById("sendBtn").disabled = true;
+      document.getElementById("spinner").style.display = "inline-block";
+
+      const avatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=333&color=fff&size=64`;
+
+      await addDoc(testimonialsRef, {
+        clientName: name,
+        email,
+        message,
+        rating: parseInt(rating),
+        avatar,
+        approved: false
+      });
+
+      document.getElementById("sendBtn").disabled = false;
+      document.getElementById("spinner").style.display = "none";
+      document.getElementById("formMsg").style.display = "block";
+      document.getElementById("testimonialForm").reset();
+    };
+
+    window.loginAdmin = function() {
+      const pass = document.getElementById("adminPass").value;
+      if (pass === "admin123") {
+        window.isAdmin = true;
+        document.getElementById("adminPanel").style.display = "block";
+        loadTestimonials();
+      } else {
+        alert("Wrong password!");
+      }
+    };
+
+    window.onload = loadTestimonials;
+  </script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #111;
+      color: #eee;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #d4af37;
+    }
+    .card {
+      background: #1e1e1e;
+      padding: 20px;
+      margin: 15px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      max-width: 600px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+    textarea { min-height: 80px; resize: vertical; }
+    button {
+      background: #d4af37;
+      border: none;
+      padding: 10px 20px;
+      color: #111;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #b8962e; }
+    .rating {
+      display: flex;
+      gap: 5px;
+      margin: 10px 0;
+    }
+    .rating input { display: none; }
+    .rating label {
+      font-size: 22px;
+      color: #555;
+      cursor: pointer;
+    }
+    .rating input:checked ~ label,
+    .rating label:hover,
+    .rating label:hover ~ label {
+      color: gold;
+    }
+    #formMsg {
+      color: lightgreen;
+      font-size: 14px;
+      margin-top: 10px;
+      display: none;
+    }
+    #spinner {
+      display: none;
+      width: 16px;
+      height: 16px;
+      border: 3px solid #fff;
+      border-top: 3px solid #d4af37;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .testimonial-card {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+    .testimonial-card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #d4af37;
+    }
+    .btn-approve {
+      background: green;
+      color: white;
+      margin-right: 8px;
+    }
+    .btn-delete {
+      background: crimson;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Client Testimonials</h1>
+
+  <!-- Form -->
+  <div class="card">
+    <h2 style="color:#d4af37">Submit Your Testimonial</h2>
+    <form id="testimonialForm" onsubmit="event.preventDefault();submitTestimonial();">
+      <input type="text" id="name" placeholder="Your Name" required/>
+      <input type="email" id="email" placeholder="Your Email" required/>
+      <textarea id="message" placeholder="Your Testimonial" required></textarea>
+      <div class="rating">
+        <input type="radio" id="star5" name="rating" value="5"/><label for="star5">★</label>
+        <input type="radio" id="star4" name="rating" value="4"/><label for="star4">★</label>
+        <input type="radio" id="star3" name="rating" value="3"/><label for="star3">★</label>
+        <input type="radio" id="star2" name="rating" value="2"/><label for="star2">★</label>
+        <input type="radio" id="star1" name="rating" value="1"/><label for="star1">★</label>
+      </div>
+      <button id="sendBtn">Send <div id="spinner"></div></button>
+    </form>
+    <div id="formMsg">✅ Your testimonial has been submitted. Please wait for the admin to approve it.</div>
+  </div>
+
+  <!-- Testimonials -->
+  <div id="testimonialList"></div>
+
+  <!-- Admin Login -->
+  <div class="card">
+    <h2 style="color:#d4af37">Admin Login</h2>
+    <input type="password" id="adminPass" placeholder="Password"/>
+    <button onclick="loginAdmin()">Login</button>
+  </div>
+
+  <!-- Admin Panel -->
+  <div id="adminPanel" style="display:none;">
+    <h2 style="color:#d4af37;text-align:center;">Admin Panel</h2>
+    <div id="testimonialList"></div>
+  </div>
+</body>
+</html>
