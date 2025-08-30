@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <titl| Contact</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -25,18 +25,38 @@
         body {
             font-family: 'Playfair Display', serif;
             color: var(--champagne-ivory);
-            background: linear-gradient(125deg, var(--midnight-navy), #1a1a40, #2d1a36);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+            background: linear-gradient(125deg, #1a1a40, #0a0a2a, #050518);
             overflow-x: hidden;
             line-height: 1.8;
             text-align: justify;
+            position: relative;
         }
         
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Marble Texture Overlay with Subtle Animation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 40% 90%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 70% 10%, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 300px 300px;
+            animation: marbleMove 60s infinite linear;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @keyframes marbleMove {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-5px, 5px); }
+            50% { transform: translate(5px, 10px); }
+            75% { transform: translate(10px, 5px); }
+            100% { transform: translate(0, 0); }
         }
         
         /* Luxury Elements Overlay */
@@ -102,6 +122,11 @@
             text-decoration: none;
             display: flex;
             align-items: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
         }
         
         .logo-watermark {
@@ -225,19 +250,19 @@
             color: var(--champagne-ivory);
         }
         
-        /* Typography */
+        /* Typography - ALL HEADLINES AND TITLES CENTERED */
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             color: var(--metallic-gold);
             margin-bottom: 20px;
             letter-spacing: 0.5px;
+            text-align: center;
         }
         
         h1 {
             font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 30px;
-            text-align: left; /* Changed to left align */
         }
         
         h2 {
@@ -245,12 +270,11 @@
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             padding-bottom: 10px;
             margin-top: 40px;
-            text-align: center;
         }
         
         h3 {
             font-size: 1.8rem;
-            color: var(--metallic-gold); /* Changed to gold */
+            color: var(--metallic-gold);
             margin-top: 30px;
         }
         
@@ -376,11 +400,11 @@
         .faq-answer {
             color: var(--champagne-ivory);
             padding: 10px 0;
-            display: none; /* Initially hidden */
+            display: none;
         }
         
         .faq-active .faq-answer {
-            display: block; /* Show when active */
+            display: block;
         }
         
         .faq-question:after {
@@ -889,14 +913,13 @@
         
         @media (max-width: 768px) {
             .nav-container {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                align-items: center;
             }
             
             .logo {
                 font-size: 1.5rem;
-                width: 100%;
-                justify-content: space-between;
+                justify-content: flex-start;
             }
             
             .logo-watermark {
@@ -908,10 +931,15 @@
             }
             
             .nav-links {
-                display: none;
-                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
                 width: 100%;
-                margin-top: 20px;
+                background: rgba(5, 5, 24, 0.95);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                display: none;
             }
             
             .nav-links.active {
@@ -1112,12 +1140,12 @@
         font-size="160" font-weight="600"
         fill="#d9b36d">RAS</text>
 </svg></span>
-                <div class="hamburger" id="hamburger-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
             </a>
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#" data-section="home">Home</a></li>
                 <li><a href="#" data-section="services">Services</a></li>
@@ -1134,7 +1162,7 @@
     
     <!-- Page Sections -->
     <section id="home" class="active">
-        <h1></h1>
+        <h1>Reymund's Executive Support</h1>
         <div class="content-box">
             <p>As an entrepreneur, coach, or business leader, you're constantly pulled away by emails, scheduling, and admin work—necessary tasks that drain your energy and steal time from the strategic work that grows your business. My mission is simple: to give you back your time and mental clarity.</p>
             <p>Imagine opening a clean, prioritized inbox, a calendar that flows smoothly, and files perfectly organized with research prepared before every meeting; this is the reality I create for my clients through reliable, stress-free systems that let you focus on leading, building, and thriving. I become your partner in productivity so you can finally breathe easily and move forward with confidence.</p>
@@ -1421,7 +1449,7 @@
         <div class="content-box testimonial-cta">
             <h3>Ready to Create Your Success Story?</h3>
             <p>Let's work together to achieve your business goals and add your testimonial to this page!</p>
-            <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Start Your Journey Today</a>
+            <a href="极速赛车开奖直播历史记录" class="gold-button center-button">Start Your Journey Today</a>
         </div>
     </section>
     
@@ -1794,7 +1822,7 @@
             apiKey: "AIzaSyBf-qtdiwnZBEPw9CubKuOyt6z7_QbIB_8",
             authDomain: "testimonial-app-27971.firebaseapp.com",
             projectId: "testimonial-app-27971",
-            storageBucket: "testimonial-app-27971.appspot.com",
+            storageBucket: "极速赛车开奖直播历史记录",
             messagingSenderId: "688760457675",
             appId: "1:688760457675:web:7c604c4bf45337852f4e4e"
         };
@@ -2011,7 +2039,7 @@
                 <p><strong>Temperature:</strong> ${mockWeatherData.temperature}°C</p>
                 <p><strong>Conditions:</strong> ${mockWeatherData.description}</p>
                 <p><strong>Humidity:</strong> ${mockWeatherData.humidity}%</p>
-                <p><strong>Wind Speed:</strong> ${mockWeatherData.windSpeed} m/s</p>
+                <p><strong>极速赛车开奖直播历史记录:</strong> ${mockWeatherData.windSpeed} m/s</p>
             `;
         }
         
@@ -2037,7 +2065,7 @@
                     querySnapshot.forEach((doc) => {
                         const data = doc.data();
                         
-                        const card = document.createElement("div");
+                        const card = document.createElement("极速赛车开奖直播历史记录");
                         card.className = "testimonial-card";
                         
                         // Create star rating HTML
@@ -2057,7 +2085,7 @@
                         container.appendChild(card);
                     });
                 })
-                .catch((error) => {
+                .catch((极速赛车开奖直播历史记录) => {
                     console.error("Error getting testimonials: ", error);
                     container.innerHTML = '<p style="text-align: center; color: var(--metallic-gold);">Unable to load testimonials at this time. Please try again later.</p>';
                 });
