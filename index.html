@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reymund's Executive Support | Contact</title>
+    <titl| Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -237,6 +237,7 @@
             font-size: 3.5rem;
             line-height: 1.2;
             margin-bottom: 30px;
+            text-align: left; /* Changed to left align */
         }
         
         h2 {
@@ -249,7 +250,7 @@
         
         h3 {
             font-size: 1.8rem;
-            color: var(--champagne-ivory);
+            color: var(--metallic-gold); /* Changed to gold */
             margin-top: 30px;
         }
         
@@ -846,6 +847,7 @@
             font-style: italic;
             text-decoration: none;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
         .blog-link:hover {
@@ -1109,7 +1111,7 @@
         font-family="Georgia, serif"
         font-size="160" font-weight="600"
         fill="#d9b36d">RAS</text>
-</svg></span> Reymund's Executive Support
+</svg></span>
                 <div class="hamburger" id="hamburger-menu">
                     <span></span>
                     <span></span>
@@ -1132,7 +1134,7 @@
     
     <!-- Page Sections -->
     <section id="home" class="active">
-        <h1 style="text-align: left;">Reymund's Executive Support</h1>
+        <h1></h1>
         <div class="content-box">
             <p>As an entrepreneur, coach, or business leader, you're constantly pulled away by emails, scheduling, and admin work—necessary tasks that drain your energy and steal time from the strategic work that grows your business. My mission is simple: to give you back your time and mental clarity.</p>
             <p>Imagine opening a clean, prioritized inbox, a calendar that flows smoothly, and files perfectly organized with research prepared before every meeting; this is the reality I create for my clients through reliable, stress-free systems that let you focus on leading, building, and thriving. I become your partner in productivity so you can finally breathe easily and move forward with confidence.</p>
@@ -1140,7 +1142,7 @@
         
         <!-- Blog link instead of tagline box -->
         <div class="content-box text-center">
-            <p><a href="#" data-section="blog" class="blog-link">How a Virtual Assistant Can Improve Your Health and Wellness</a></p>
+            <p><a href="#" class="blog-link" id="blog-link">How a Virtual Assistant Can Improve Your Health and Wellness</a></p>
         </div>
         
         <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Book Your Free Consultation</a>
@@ -1323,7 +1325,7 @@
         </div>
         
         <!-- New Blog Post: How a Virtual Assistant Can Improve Your Health and Wellness -->
-        <div class="content-box">
+        <div class="content-box" id="health-wellness">
             <h3>How a Virtual Assistant Can Improve Your Health and Wellness</h3>
             <p>In today's fast-paced world, it's easy to become overwhelmed with daily tasks, especially when you're juggling work, personal life, and self-care. This is where a Virtual Assistant (VA) can make a significant impact on your health and wellness.</p>
             
@@ -1856,6 +1858,16 @@
                     }
                     // External links will follow their href naturally
                 });
+            });
+            
+            // Make the blog link in homepage work
+            document.getElementById('blog-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSection('blog');
+                // Scroll to the specific blog post
+                setTimeout(() => {
+                    document.getElementById('health-wellness').scrollIntoView({ behavior: 'smooth' });
+                }, 500);
             });
             
             // FAQ toggle functionality
