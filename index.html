@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reymund's Executive Support | Contact</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600;6..96,700&family=Garamond:wght@400;600;700&family=Didot:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Base Styles & Luxury Background */
         :root {
@@ -23,7 +23,7 @@
         }
         
         body {
-            font-family: 'Didot', 'Helvetica Neue', serif;
+            font-family: 'Playfair Display', serif;
             color: var(--champagne-ivory);
             background: linear-gradient(125deg, var(--midnight-navy), #1a1a40, #2d1a36);
             background-size: 400% 400%;
@@ -66,7 +66,7 @@
         
         /* Modern Clock - Now in Footer */
         .luxury-clock {
-            font-family: 'Bodoni Moda', serif;
+            font-family: 'Playfair Display', serif;
             color: var(--metallic-gold);
             font-size: 1.1rem;
             padding: 10px 15px;
@@ -96,7 +96,7 @@
         }
         
         .logo {
-            font-family: 'Bodoni Moda', serif;
+            font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             color: var(--metallic-gold);
             text-decoration: none;
@@ -105,8 +105,10 @@
         }
         
         .logo-watermark {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-right: 10px;
+            width: 50px;
+            height: 50px;
         }
         
         .nav-links {
@@ -225,7 +227,7 @@
         
         /* Typography */
         h1, h2, h3, h4 {
-            font-family: 'Bodoni Moda', 'Garamond', serif;
+            font-family: 'Playfair Display', serif;
             color: var(--metallic-gold);
             margin-bottom: 20px;
             letter-spacing: 0.5px;
@@ -311,7 +313,7 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
             border-radius: 5px;
             color: var(--champagne-ivory);
-            font-family: 'Didot', serif;
+            font-family: 'Playfair Display', serif;
             transition: all 0.3s ease;
         }
         
@@ -359,7 +361,7 @@
         }
         
         .faq-question {
-            font-family: 'Bodoni Moda', serif;
+            font-family: 'Playfair Display', serif;
             color: var(--metallic-gold);
             font-size: 1.3rem;
             margin-bottom: 10px;
@@ -511,7 +513,7 @@
         }
         
         .service-title {
-            font-family: 'Bodoni Moda', serif;
+            font-family: 'Playfair Display', serif;
             color: var(--metallic-gold);
             font-size: 1.4rem;
             margin-bottom: 15px;
@@ -524,7 +526,7 @@
         }
         
         .service-category {
-            font-family: 'Bodoni Moda', serif;
+            font-family: 'Playfair Display', serif;
             color: var(--metallic-gold);
             font-size: 2rem;
             margin: 50px 0 30px;
@@ -567,7 +569,7 @@
         }
         
         .term-title {
-            font-family: 'Bodoni Moda', serif;
+            font-family: 'Playfair Display', serif;
             color: var(--metallic-gold);
             font-size: 1.8rem;
             margin-bottom: 25px;
@@ -771,6 +773,60 @@
             margin-right: 10px;
         }
         
+        /* Cyber Safety Section Styles */
+        .cyber-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .cyber-box {
+            background: rgba(5, 5, 24, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 8px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        
+        .cyber-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--metallic-gold);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .cyber-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--metallic-gold), transparent);
+        }
+        
+        /* Admin Panel Button in Footer */
+        .admin-toggle {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* Home section adjustments */
+        #home .content-box:first-child {
+            margin-top: 30px;
+        }
+        
         /* Responsive Design */
         @media (max-width: 1024px) {
             h1 {
@@ -816,7 +872,7 @@
             }
             
             .logo-watermark {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .hamburger {
@@ -1021,7 +1077,7 @@
     <nav>
         <div class="nav-container">
             <a href="#" class="logo" data-section="home">
-                <span class="logo-watermark"><svg viewBox="0 0 512 512" width="120" height="120" aria-label="RAS Logo">
+                <span class="logo-watermark"><svg viewBox="0 0 512 512" width="50" height="50" aria-label="RAS Logo">
   <circle cx="256" cy="256" r="246" fill="#0b233a" stroke="#d9b36d" stroke-width="16"/>
   <text x="50%" y="58%" text-anchor="middle"
         font-family="Georgia, serif"
@@ -1040,9 +1096,10 @@
                 <li><a href="#" data-section="portfolio">Portfolio</a></li>
                 <li><a href="#" data-section="blog">Blog</a></li>
                 <li><a href="#" data-section="testimonials">Testimonials</a></li>
+                <li><a href="#" data-section="cyber-safety">Cyber Safety</a></li>
                 <li><a href="#" data-section="faq">FAQ</a></li>
                 <li><a href="#" data-section="terms">Terms</a></li>
-                <li><a href="#" data-section="contact" style="color: var(--metallic-gold); font-weight: 600;">Contact</a></li>
+                <li><a href="#" data-section="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -1283,7 +1340,7 @@
                         <label for="star2">★</label>
                         <input type="radio" id="star1" name="rating" value="1">
                         <label for="star1">★</label>
-                    </div>
+                </div>
                 </div>
                 
                 <div class="form-group">
@@ -1303,18 +1360,6 @@
                     <p>Loading testimonials...</p>
                 </div>
             </div>
-            
-            <!-- Admin Panel (Hidden by default) -->
-            <div id="adminPanel" class="admin-panel">
-                <h3>Admin Panel</h3>
-                <div class="form-group">
-                    <label for="adminPass">Admin Password</label>
-                    <input type="password" id="adminPass">
-                </div>
-                <button class="gold-button" onclick="loginAdmin()">Login</button>
-                
-                <div id="adminTestimonialList" class="admin-controls"></div>
-            </div>
         </div>
         
         <div class="content-box testimonial-cta">
@@ -1322,6 +1367,77 @@
             <p>Let's work together to achieve your business goals and add your testimonial to this page!</p>
             <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Start Your Journey Today</a>
         </div>
+    </section>
+    
+    <!-- NEW: Cyber Safety & Data Protection Section -->
+    <section id="cyber-safety">
+        <h2>Cyber Safety & Data Protection</h2>
+        <div class="content-box">
+            <p>Your security is my priority. In today's digital landscape, protecting your information is not just a feature—it's a fundamental part of my service commitment to you.</p>
+        </div>
+        
+        <div class="cyber-container">
+            <div class="cyber-box">
+                <h3 class="cyber-title">Why Cyber Safety Matters</h3>
+                <p>In today's digital world, business growth depends on trust. Clients share sensitive information every day—emails, logins, files, and confidential strategies. Without proper safeguards, that trust can be at risk. My commitment is clear: when you work with me, your data and privacy are always protected with industry-standard security practices.</p>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">Safe Browsing on This Website</h3>
+                <p>Your visit here is fully secure. This site uses encrypted HTTPS connections, so any data you send (like filling out forms) is safe in transit. No third-party trackers are installed, and your information will never be sold or misused. Browsing my site is private, safe, and worry-free.</p>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">How to Recognize Phishing Emails</h3>
+                <p>Phishing attacks are one of the biggest threats online. To protect you and your business, here are clear signs to watch out for:</p>
+                <ul>
+                    <li>Emails with urgent scare tactics ("Your account will be closed today!").</li>
+                    <li>Suspicious sender addresses that look almost—but not exactly—like real ones.</li>
+                    <li>Poor grammar, misspellings, or generic greetings ("Dear Customer").</li>
+                    <li>Unusual links or attachments asking you to log in or download something.</li>
+                    <li>Requests for confidential data such as passwords, bank details, or security codes.</li>
+                </ul>
+                <p>If you receive an email like this, do not click anything. Report it immediately to your provider or security team.</p>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">My Cybersecurity Standards</h3>
+                <p>To keep every client safe, I strictly follow these measures:</p>
+                <ul>
+                    <li>Use of password managers (LastPass, Bitwarden) to prevent exposed logins.</li>
+                    <li>Mandatory Two-Factor Authentication (2FA) for sensitive accounts.</li>
+                    <li>Encrypted communication through Slack, Teams, or secure email.</li>
+                    <li>Cloud file sharing only via trusted platforms (Google Drive, OneDrive, Dropbox).</li>
+                    <li>Zero tolerance for unsecured storage or sharing.</li>
+                </ul>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">Secure Client Onboarding Process</h3>
+                <p>A step-by-step approach to ensuring your data remains protected from day one:</p>
+                <ol>
+                    <li><strong>Confidentiality Agreement</strong> - We begin by signing an NDA to protect your sensitive information.</li>
+                    <li><strong>Password Manager Access</strong> - You share access securely using tools like LastPass or Bitwarden, so raw passwords remain hidden.</li>
+                    <li><strong>Safe Communication Setup</strong> - We agree on encrypted, reliable platforms—Slack, Teams, or secure email.</li>
+                    <li><strong>Encrypted File Sharing</strong> - Documents are shared only via secure, cloud-based drives with restricted permissions.</li>
+                    <li><strong>Two-Factor Authentication (2FA)</strong> - Every login is reinforced with 2FA for extra protection.</li>
+                    <li><strong>Access Reviews</strong> - I periodically check permissions and remove outdated accounts to prevent risk.</li>
+                    <li><strong>Active Monitoring</strong> - I monitor unusual login attempts or phishing risks and alert you right away.</li>
+                </ol>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">Ongoing Security Support</h3>
+                <p>Cyber safety isn't a one-time setup—it's a daily practice. I keep updated with cybersecurity best practices to protect both you and your business. If any suspicious activity arises, I act fast to minimize impact and secure your systems.</p>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">Final Assurance</h3>
+                <p>Your trust is my highest priority. By working with me, you're not just delegating tasks—you're gaining a partner who values your data as much as you do. My goal is to give you peace of mind, so you can focus on scaling your business while I safeguard the behind-the-scenes details.</p>
+            </div>
+        </div>
+        
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Schedule a Consultation to Discuss Security Protocols</a>
     </section>
     
     <section id="faq">
@@ -1565,6 +1681,7 @@
                     <li><a href="#" data-section="portfolio">Portfolio</a></li>
                     <li><a href="#" data-section="blog">Blog</a></li>
                     <li><a href="#" data-section="testimonials">Testimonials</a></li>
+                    <li><a href="#" data-section="cyber-safety">Cyber Safety</a></li>
                 </ul>
             </div>
             
@@ -1586,6 +1703,24 @@
         
         <div class="footer-bottom">
             <p>&copy; 2025 Reymund's Executive Support. All rights reserved.</p>
+            
+            <!-- Admin Panel Toggle Button -->
+            <div class="admin-toggle">
+                <button class="gold-button" id="admin-toggle-btn">Admin Panel</button>
+            </div>
+            
+            <!-- Admin Panel (Hidden by default) -->
+            <div id="adminPanel" class="admin-panel">
+                <h3>Admin Panel</h3>
+                <div class="form-group">
+                    <label for="adminPass">Admin Password</label>
+                    <input type="password" id="adminPass">
+                </div>
+                <button class="gold-button" onclick="loginAdmin()">Login</button>
+                
+                <div id="adminTestimonialList" class="admin-controls"></div>
+            </div>
+            
             <!-- Clock moved to footer -->
             <div class="luxury-clock">
                 <span id="current-time"></span>
@@ -1777,6 +1912,14 @@
                     formStatus.scrollIntoView({ behavior: 'smooth' });
                 });
             });
+            
+            // Admin panel toggle functionality
+            const adminToggleBtn = document.getElementById('admin-toggle-btn');
+            const adminPanel = document.getElementById('adminPanel');
+            
+            adminToggleBtn.addEventListener('click', function() {
+                adminPanel.style.display = adminPanel.style.display === 'none' || adminPanel.style.display === '' ? 'block' : 'none';
+            });
         });
         
         // Function to fetch weather data for Roxas City
@@ -1860,7 +2003,6 @@
             
             // Simple password check (in production, use a more secure method)
             if (password === 'admin123') {
-                document.getElementById('adminPanel').style.display = 'block';
                 loadAdminTestimonials();
             } else {
                 alert('Incorrect password');
