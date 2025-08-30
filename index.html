@@ -244,6 +244,7 @@
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             padding-bottom: 10px;
             margin-top: 40px;
+            text-align: center;
         }
         
         h3 {
@@ -827,6 +828,31 @@
             margin-top: 30px;
         }
         
+        /* Center alignment utility classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .center-button {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        
+        /* Blog link style */
+        .blog-link {
+            color: var(--metallic-gold);
+            font-style: italic;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-link:hover {
+            color: var(--champagne-ivory);
+            text-decoration: underline;
+        }
+        
         /* Responsive Design */
         @media (max-width: 1024px) {
             h1 {
@@ -1106,19 +1132,18 @@
     
     <!-- Page Sections -->
     <section id="home" class="active">
-        <h1></h1>
+        <h1 style="text-align: left;">Reymund's Executive Support</h1>
         <div class="content-box">
             <p>As an entrepreneur, coach, or business leader, you're constantly pulled away by emails, scheduling, and admin work—necessary tasks that drain your energy and steal time from the strategic work that grows your business. My mission is simple: to give you back your time and mental clarity.</p>
             <p>Imagine opening a clean, prioritized inbox, a calendar that flows smoothly, and files perfectly organized with research prepared before every meeting; this is the reality I create for my clients through reliable, stress-free systems that let you focus on leading, building, and thriving. I become your partner in productivity so you can finally breathe easily and move forward with confidence.</p>
         </div>
         
-        <!-- Tagline Box - Added at the bottom of the home section -->
-        <div class="content-box tagline-box">
-            <h3>You don't have to do it alone. Delegate with confidence.</h3>
-            <p>All-in-One Virtual Executive Support designed to help you scale.</p>
+        <!-- Blog link instead of tagline box -->
+        <div class="content-box text-center">
+            <p><a href="#" data-section="blog" class="blog-link">How a Virtual Assistant Can Improve Your Health and Wellness</a></p>
         </div>
         
-        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Book Your Free Consultation</a>
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Book Your Free Consultation</a>
     </section>
     
     <section id="services">
@@ -1154,7 +1179,7 @@
                 <p class="service-description">I provide market insights, competitor analyses, and polished presentations ready when you need them.</p>
             </div>
             
-            <div class="service-box">
+            <div class="service-box text-center">
                 <div class="service-icon">
                     <i class="fas fa-users"></i>
                 </div>
@@ -1162,7 +1187,7 @@
                 <p class="service-description">I facilitate smooth communication, onboarding, and coordination to keep all stakeholders aligned.</p>
             </div>
             
-            <div class="service-box">
+            <div class="service-box text-center">
                 <div class="service-icon">
                     <i class="fas fa-plane"></i>
                 </div>
@@ -1197,7 +1222,7 @@
                 <p class="service-description">Including posting, engagement, and growth.</p>
             </div>
             
-            <div class="service-box">
+            <div class="service-box text-center">
                 <div class="service-icon">
                     <i class="fas fa-bullseye"></i>
                 </div>
@@ -1205,7 +1230,7 @@
                 <p class="service-description">With curated prospects for your pipeline.</p>
             </div>
             
-            <div class="service-box">
+            <div class="service-box text-center">
                 <div class="service-icon">
                     <i class="fas fa-headset"></i>
                 </div>
@@ -1214,7 +1239,7 @@
             </div>
         </div>
         
-        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Book Your Free Consultation</a>
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Book Your Free Consultation</a>
     </section>
     
     <section id="portfolio">
@@ -1222,7 +1247,7 @@
         <div class="content-box">
             <p>I believe in showing, not just telling. To give you the most relevant insight into how I can help, I personalize work samples based on your specific business needs and challenges. Please let me know what you'd like to see most, and I'll prepare examples just for you.</p>
         </div>
-        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Schedule a consultation to review samples</a>
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Schedule a consultation to review samples</a>
     </section>
     
     <section id="blog">
@@ -1297,7 +1322,37 @@
             <p>Read more: <a href="https://smartvirtualassistants.com/" target="_blank" style="color: var(--metallic-gold);">Smart Virtual Assistants</a></p>
         </div>
         
-        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Book Your Free Consultation to Discuss Delegation Strategies</a>
+        <!-- New Blog Post: How a Virtual Assistant Can Improve Your Health and Wellness -->
+        <div class="content-box">
+            <h3>How a Virtual Assistant Can Improve Your Health and Wellness</h3>
+            <p>In today's fast-paced world, it's easy to become overwhelmed with daily tasks, especially when you're juggling work, personal life, and self-care. This is where a Virtual Assistant (VA) can make a significant impact on your health and wellness.</p>
+            
+            <h4>1. Reduce Stress and Overwhelm</h4>
+            <p>Managing multiple tasks can be stressful, but with a VA by your side, you can delegate administrative duties, allowing you to focus on what truly matters. No more feeling bogged down by emails, scheduling, or other time-consuming tasks. A VA helps you regain control and reduce stress, leading to a calmer, more balanced lifestyle. (American Psychological Association, 2021)</p>
+            
+            <h4>2. Free Up Time for Self-Care</h4>
+            <p>Time is one of the most valuable assets. When you free up time by delegating tasks to a VA, you can invest in your well-being. Whether it's exercising, meditating, cooking nutritious meals, or simply taking a break, a VA allows you to prioritize your health without feeling guilty about unfinished work. (Harvard Health Publishing, 2020)</p>
+            
+            <h4>3. Achieve a Better Work-Life Balance</h4>
+            <p>Work-life balance is essential for mental and physical health. A VA helps you manage your workload efficiently, so you're not sacrificing your personal time. With fewer worries about work, you can enjoy more quality time with loved ones, relax, and recharge, which ultimately improves your overall health and happiness. (Psychology Today, 2019)</p>
+            
+            <h4>4. Boost Your Productivity</h4>
+            <p>Having a VA on your team allows you to focus on the tasks that only you can do. By offloading routine administrative duties, you'll be able to achieve more in less time, reducing stress and mental fatigue. This increased productivity leads to more satisfaction in both your professional and personal life. (Forbes, 2021)</p>
+            
+            <h4>5. Support Your Mental Health</h4>
+            <p>Mental wellness is just as important as physical health. A VA can help create a healthy work environment by streamlining tasks and reducing your cognitive load. With fewer things to worry about, you can maintain a clearer mind, reduce anxiety, and improve your overall mental well-being. (National Institute of Mental Health, 2020)</p>
+            
+            <h4>References:</h4>
+            <ul>
+                <li>American Psychological Association. (2021). Stress in America: The State of Our Nation. https://www.apa.org/news/press/releases/stress/2021/state-nation</li>
+                <li>Harvard Health Publishing. (2020). The Importance of Time for Self-Care. https://www.health.harvard.edu</li>
+                <li>Psychology Today. (2019). Work-Life Balance and Its Impact on Your Health. https://www.psychologytoday.com</li>
+                <li>Forbes. (2021). Boosting Productivity with Virtual Assistants. https://www.forbes.com</li>
+                <li>National Institute of Mental Health. (2020). Mental Health and Wellness. https://www.nimh.nih.gov</li>
+            </ul>
+        </div>
+        
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Book Your Free Consultation to Discuss Delegation Strategies</a>
     </section>
     
     <!-- Testimonials Section - Updated with Custom Form -->
@@ -1311,9 +1366,8 @@
         </div>
         
         <div class="content-box">
-            <h3>Share Your Feedback</h3>
-            <p>Leave your testimonial below — it only takes a moment! Your review will be posted shortly after approval.</p>
-            <p class="testimonial-note">Thank you for supporting my small business and helping it grow!</p>
+            <h3 class="text-center">Share Your Feedback</h3>
+            <p class="text-center">Leave your testimonial below — it only takes a moment! Your review will be posted shortly after approval.</p>
             
             <!-- Custom Testimonial Form -->
             <form id="testimonialForm" class="testimonial-form">
@@ -1348,7 +1402,7 @@
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 
-                <button type="submit" class="gold-button">Submit Testimonial</button>
+                <button type="submit" class="gold-button center-button">Submit Testimonial</button>
             </form>
             
             <div class="form-status" id="formStatus"></div>
@@ -1365,7 +1419,7 @@
         <div class="content-box testimonial-cta">
             <h3>Ready to Create Your Success Story?</h3>
             <p>Let's work together to achieve your business goals and add your testimonial to this page!</p>
-            <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Start Your Journey Today</a>
+            <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Start Your Journey Today</a>
         </div>
     </section>
     
@@ -1437,7 +1491,7 @@
             </div>
         </div>
         
-        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Schedule a Consultation to Discuss Security Protocols</a>
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Schedule a Consultation to Discuss Security Protocols</a>
     </section>
     
     <section id="faq">
@@ -1608,7 +1662,7 @@
                 <h3 class="term-title">Your Peace of Mind is My Priority</h3>
                 <p>My goal is to remove your administrative stress, not add to it. This structured, transparent, and legally sound framework is the bedrock of my service. It allows us to build a productive, long-term partnership where you can focus on growth, knowing the operational details are handled with professionalism and integrity.</p>
                 <p>Ready to work with complete confidence?</p>
-                <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button">Let's discuss your needs and review a sample agreement</a>
+                <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Let's discuss your needs and review a sample agreement</a>
             </div>
         </div>
     </section>
@@ -1616,7 +1670,7 @@
     <!-- NEW: Contact Section with Form -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <div class="content-box" style="text-align: center;">
+        <div class="content-box text-center">
             <p>Ready to connect and grow? Fill out the form below to get in touch with me. I'm looking forward to hearing from you and discussing how I can support your productivity.</p>
         </div>
         
@@ -1638,11 +1692,11 @@
                     <textarea id="message" name="message" required></textarea>
                 </div>
                 
-                <button type="submit" class="gold-button">Send Message</button>
+                <button type="submit" class="gold-button center-button">Send Message</button>
             </form>
             
             <div class="success-message" id="successMessage">
-                ✅ Your message has been sent successfully. Thank you, <strong><span id="userName"></span></strong>! I’ll get back to you soon. – Reymund’s Executive Support
+                ✅ Your message has been sent successfully. Thank you, <strong><span id="userName"></span></strong>! I'll get back to you soon. – Reymund's Executive Support
             </div>
         </div>
         
@@ -1653,7 +1707,7 @@
             <!-- Google Maps for Roxas City, Capiz -->
             <h3 style="margin-top: 40px; text-align: center;">My Location for Legitimacy</h3>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d998238.4948108396!2d121.76889918359374!3d11.469980000000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a5c7c22e2baf4f%3A0x5f9aae426b206f0a!2sRoxas%20City%2C%20Capiz!5e0!3m2!1sen!2sph!4v1719330000000!5m2!1sen!2sph" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d998238.4948108396!2d121.76889918359374!3d11.469980000000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a5c7c22e2baf4f%3A0x5f9aae426b206f0a!2sRoxas%20City%2C%20Capiz!5e0!3m2!1sen!2sph!4v1719330000000!5m2!1sen!2sph" allowfullscreen="" loading=" lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -1697,7 +1751,7 @@
             <div class="footer-section">
                 <h3>Contact</h3>
                 <p>Email: siasonra@gmail.com</p>
-                <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button" target="_blank">Book Consultation</a>
+                <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button" target="_blank">Book Consultation</a>
             </div>
         </div>
         
