@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles & Galactic Black Luxury Background */
+        /* Base Styles & Luxury Background */
         :root {
             --midnight-navy: #0a0a2a;
             --champagne-ivory: #f8f0e3;
@@ -25,18 +25,14 @@
         body {
             font-family: 'Playfair Display', serif;
             color: var(--champagne-ivory);
-            background: 
-                radial-gradient(ellipse at center, rgba(10, 10, 42, 0.8) 0%, rgba(5, 5, 24, 0.9) 70%, rgba(0, 0, 0, 1) 100%),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23d4af37" opacity="0.5"/></svg>'),
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="100" cy="100" r="1.5" fill="%23f8f0e3" opacity="0.3"/></svg>');
-            background-size: cover, 150px 150px, 200px 200px;
+            background: linear-gradient(125deg, #1a1a40, #0a0a2a, #050518);
             overflow-x: hidden;
             line-height: 1.8;
             text-align: justify;
             position: relative;
         }
         
-        /* Galactic Starfield Animation */
+        /* Marble Texture Overlay with Subtle Animation */
         body::before {
             content: '';
             position: fixed;
@@ -45,19 +41,22 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at 40% 90%, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-                radial-gradient(circle at 70% 10%, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 40% 90%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 70% 10%, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 300px 300px;
-            animation: starTwinkle 8s infinite ease-in-out;
+            animation: marbleMove 60s infinite linear;
             pointer-events: none;
             z-index: -1;
         }
         
-        @keyframes starTwinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
+        @keyframes marbleMove {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-5px, 5px); }
+            50% { transform: translate(5px, 10px); }
+            75% { transform: translate(10px, 5px); }
+            100% { transform: translate(0, 0); }
         }
         
         /* Luxury Elements Overlay */
@@ -95,7 +94,7 @@
             margin-top: 20px;
         }
         
-        /* Navigation Styles - Centered */
+        /* Navigation Styles */
         nav {
             position: fixed;
             top: 0;
@@ -111,40 +110,39 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 0 20px;
-            position: relative;
         }
         
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--metallic-gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
         }
         
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--metallic-gold);
-            margin: 2px 0;
-            transition: all 0.3s ease;
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-watermark {
+            font-size: 2rem;
+            margin-right: 10px;
+            width: 50px;
+            height: 50px;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            margin: 0;
-            padding: 0;
         }
         
         .nav-links li {
-            margin: 0 15px;
+            margin-left: 30px;
         }
         
         .nav-links a {
@@ -173,6 +171,22 @@
         
         .nav-links a:hover:after {
             width: 100%;
+        }
+        
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--metallic-gold);
+            margin: 2px 0;
+            transition: all 0.3s ease;
         }
         
         /* Section Styles */
@@ -608,7 +622,7 @@
             border-radius: 8px;
             padding: 25px;
             margin-bottom: 20px;
-            transition: all 极速赛车开奖直播历史记录;
+            transition: all 0.3s ease;
         }
         
         .testimonial-card:hover {
@@ -656,7 +670,7 @@
             flex: 1;
             min-width: 300px;
             background: rgba(5, 5, 24, 0.7);
-            border: 1px solid rgba(212, 175, 55, 极速赛车开奖直播历史记录);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 5px;
             padding: 30px;
             backdrop-filter: blur(5px);
@@ -764,7 +778,7 @@
         .form-status.error {
             background: rgba(178, 34, 34, 0.2);
             border: 1px solid rgba(255, 0, 0, 0.3);
-            color: #极速赛车开奖直播历史记录;
+            color: #ffcccb;
             display: block;
         }
         
@@ -817,7 +831,7 @@
             padding-bottom: 15px;
         }
         
-        .极速赛车开奖直播历史记录:after {
+        .cyber-title:after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -825,7 +839,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--metallic极速赛车开奖直播历史记录), transparent);
+            background: linear-gradient(90deg, transparent, var(--metallic-gold), transparent);
         }
         
         /* Admin Panel Button in Footer */
@@ -901,7 +915,15 @@
             .nav-container {
                 flex-direction: row;
                 align-items: center;
-                justify-content: space-between;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+                justify-content: flex-start;
+            }
+            
+            .logo-watermark {
+                font-size: 1.8rem;
             }
             
             .hamburger {
@@ -1048,6 +1070,10 @@
                 font-size: 1rem;
             }
             
+            .logo {
+                font-size: 1.3rem;
+            }
+            
             .faq-question {
                 font-size: 1.1rem;
             }
@@ -1082,7 +1108,8 @@
             
             .testimonial-card {
                 padding: 15px;
-极速赛车开奖直播历史记录
+            }
+            
             .testimonial-text {
                 font-size: 1rem;
             }
@@ -1099,12 +1126,21 @@
         <div class="gold-flash" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
         <div class="gold-flash" style="top: 70%; left: 80%; animation-delay: 2s;"></div>
         <div class="gold-flash" style="top: 30%; left: 60%; animation-delay: 4s;"></div>
-        <div class="gold-flash" style="top: 50%; left: 20%; animation-delay: 6极速赛车开奖直播历史记录;"></div>
+        <div class="gold-flash" style="top: 50%; left: 20%; animation-delay: 6s;"></div>
     </div>
     
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
+            <a href="#" class="logo" data-section="home">
+                <span class="logo-watermark"><svg viewBox="0 0 512 512" width="50" height="50" aria-label="RAS Logo">
+  <circle cx="256" cy="256" r="246" fill="#0b233a" stroke="#d9b36d" stroke-width="16"/>
+  <text x="50%" y="58%" text-anchor="middle"
+        font-family="Georgia, serif"
+        font-size="160" font-weight="600"
+        fill="#d9b36d">RAS</text>
+</svg></span>
+            </a>
             <div class="hamburger" id="hamburger-menu">
                 <span></span>
                 <span></span>
@@ -1114,7 +1150,7 @@
                 <li><a href="#" data-section="home">Home</a></li>
                 <li><a href="#" data-section="services">Services</a></li>
                 <li><a href="#" data-section="portfolio">Portfolio</a></li>
-                <li><a href="#" data-section="blog">Blog</极速赛车开奖直播历史记录></li>
+                <li><a href="#" data-section="blog">Blog</a></li>
                 <li><a href="#" data-section="testimonials">Testimonials</a></li>
                 <li><a href="#" data-section="cyber-safety">Cyber Safety</a></li>
                 <li><a href="#" data-section="faq">FAQ</a></li>
@@ -1173,7 +1209,7 @@
                 <p class="service-description">I provide market insights, competitor analyses, and polished presentations ready when you need them.</p>
             </div>
             
-            <div class="service-box">
+            <div class="service-box text-center">
                 <div class="service-icon">
                     <i class="fas fa-users"></i>
                 </div>
@@ -1181,21 +1217,12 @@
                 <p class="service-description">I facilitate smooth communication, onboarding, and coordination to keep all stakeholders aligned.</p>
             </div>
             
-            <div class="service-box">
+            <div class="service-box text-center">
                 <div class="service-icon">
                     <i class="fas fa-plane"></i>
                 </div>
                 <h4 class="service-title">Travel Planning</h4>
                 <p class="service-description">I seamlessly arrange flights, accommodations, and detailed itineraries for your business needs.</p>
-            </div>
-            
-            <!-- NEW: CRM Service Box -->
-            <div class="service-box">
-                <div class="service-icon">
-                    <i class="fas fa-address-book"></i>
-                </div>
-                <h4 class="service-title">CRM Management</h4>
-                <p class="service-description">I can help you streamline customer data, improve communication, and automate processes to boost sales and build stronger relationships, all with a tailored CRM solution.</p>
             </div>
         </div>
         
@@ -1203,7 +1230,7 @@
         <div class="services-container">
             <div class="service-box">
                 <div class="service-icon">
-                    <i class="fas fa-paint-brush"></极速赛车开奖直播历史记录>
+                    <i class="fas fa-paint-brush"></i>
                 </div>
                 <h4 class="service-title">Canva Design</h4>
                 <p class="service-description">For social graphics, presentations, and branded documents.</p>
@@ -1225,7 +1252,7 @@
                 <p class="service-description">Including posting, engagement, and growth.</p>
             </div>
             
-            <div class="service-box">
+            <div class="service-box text-center">
                 <div class="service-icon">
                     <i class="fas fa-bullseye"></i>
                 </div>
@@ -1233,30 +1260,489 @@
                 <p class="service-description">With curated prospects for your pipeline.</p>
             </div>
             
-            <div class="service-box">
+            <div class="service-box text-center">
                 <div class="service-icon">
                     <i class="fas fa-headset"></i>
                 </div>
-                <h4 class="service-title">Customer Support</极速赛车开奖直播历史记录>
+                <h4 class="service-title">Customer Support</h4>
                 <p class="service-description">With professional, empathetic client responses.</p>
-            </div>
-            
-            <!-- NEW: AI-Powered Website Creation Box -->
-            <div class="service-box">
-                <div class="service-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <h4 class="service-title">AI-Powered Website Creation</h4>
-                <p class="service-description">Using AI, I can quickly build a clean, responsive, and user-friendly website tailored to your needs. From design to functionality, AI streamlines the process, making it faster and more efficient than traditional methods.</p>
             </div>
         </div>
         
         <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Book Your Free Consultation</a>
     </section>
     
-    <!-- Remaining sections (Portfolio, Blog, Testimonials, etc.) would go here -->
-    <!-- Due to character limits, I've omitted the full code for these sections but they should remain as in the original -->
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="content-box">
+            <p>I believe in showing, not just telling. To give you the most relevant insight into how I can help, I personalize work samples based on your specific business needs and challenges. Please let me know what you'd like to see most, and I'll prepare examples just for you.</p>
+        </div>
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Schedule a consultation to review samples</a>
+    </section>
     
+    <section id="blog">
+        <h2>Blog</h2>
+        
+        <!-- Blog Post 1 -->
+        <div class="content-box">
+            <h3>A Breath of Fresh Air for the Overloaded Mind</h3>
+            <p>Entrusting tasks to a qualified virtual assistant can significantly reduce the mental load that entrepreneurs shoulder, easing stress and fostering clearer thinking. Delegation to a VA brings psychological relief by removing routine burdens from your mind and leaving space for strategic focus and well-being.</p>
+            <p>Read more: <a href="https://www.lazarandcompany.com/blog/how-hiring-a-virtual-assistant-can-reduce-your-mental-load" target="_blank" style="color: var(--metallic-gold);">Lazar & Company</a></p>
+        </div>
+        
+        <!-- Blog Post 2 -->
+        <div class="content-box">
+            <h3>Remote Delegation Builds Trust and Productivity</h3>
+            <p>Shifting to remote collaboration can be daunting, yet studies show that effective delegation to virtual teams boosts productivity—one report highlighted a 38 percent rise in efficiency among remote workers. Trust is foundational, and embracing it can unlock considerable gains when working with a virtual assistant.</p>
+        </div>
+        
+        <!-- Blog Post 3 -->
+        <div class="content-box">
+            <h3>Mastering Delegation: A Leader's Delegation Guide</h3>
+            <p>Effective delegation is a leadership skill that not only frees time but also allows you to concentrate on high-impact goals. A clear delegation process—including setting expectations, communicating regularly, and aligning tasks with the VA's strengths—can maximize return on investment.</p>
+            <p>Read more: <a href="https://maven.com/" target="_blank" style="color: var(--metallic-gold);">Maven</a></p>
+        </div>
+        
+        <!-- Blog Post 4 -->
+        <div class="content-box">
+            <h3>Overcoming Psychological Barriers to Outsourcing</h3>
+            <p>Many professionals hesitate to delegate due to fears around trust, control, and quality. Understanding and overcoming these psychological barriers is key to embracing delegation and growing sustainably. Techniques like starting with low-risk tasks and using vetted platforms can ease this transition.</p>
+            <p>Read more: <a href="https://hibyron.com/" target="_blank" style="color: var(--metallic-gold);">HiByron</a></p>
+        </div>
+        
+        <!-- Blog Post 5 -->
+        <div class="content-box">
+            <h3>Delegation Makes Time for Strategy, Not Just Tasks</h3>
+            <p>Passing off time-consuming tasks to a virtual assistant doesn't just save hours—it allows you to focus on business-building and creative strategy, making delegation a strategic enabler rather than merely a convenience.</p>
+            <p>Read more: <a href="https://digideskhub.com/" target="_blank" style="color: var(--metallic-gold);">DigideskHub</a></p>
+        </div>
+        
+        <!-- Blog Post 6 -->
+        <div class="content-box">
+            <h3>Working Smarter, Not Harder</h3>
+            <p>Delegation is an art, especially when remote assistance is involved. Done correctly, it enables professionals to eliminate monotonous tasks and empower others, all while scaling visibility and effectiveness.</p>
+            <p>Read more: <a href="https://simpleassist.org/" target="_blank" style="color: var(--metallic-gold);">SimpleAssist</a></p>
+        </div>
+        
+        <!-- Blog Post 7 -->
+        <div class="content-box">
+            <h3>Creativity Flourishes Without Burnout</h3>
+            <p>Offloading routine tasks not only saves time but also preserves mental energy—reducing burnout and enhancing space for creative thinking. Working "in your Zone of Genius" can thus become more routine when aided by a VA.</p>
+            <p>Read more: <a href="https://delegatetoday.com/" target="_blank" style="color: var(--metallic-gold);">Delegate Today</a></p>
+        </div>
+        
+        <!-- Blog Post 8 -->
+        <div class="content-box">
+            <h3>Nearshore VAs: Efficiency, Cost Savings, and Balance</h3>
+            <p>Virtual assistants—especially when tapped from nearshore locations—bring specialized skills, cost-effectiveness, and flexibility. They help businesses work more efficiently, stay agile, and maintain a healthier work-life balance.</p>
+            <p>Read more: <a href="https://capitaworks.com/" target="_blank" style="color: var(--metallic-gold);">CapitaWorks</a></p>
+        </div>
+        
+        <!-- Blog Post 9 -->
+        <div class="content-box">
+            <h3>Strategic Delegation as an Enabler of Growth</h3>
+            <p>By delegating strategically to a VA, you're not just outsourcing—you're expanding your capacity to lead and scale. Removing operational friction frees up bandwidth to pursue higher-level initiatives, driving growth and long-term results.</p>
+            <p>Read more: <a href="https://capitaworks.com/" target="_blank" style="color: var(--metallic-gold);">CapitaWorks</a></p>
+        </div>
+        
+        <!-- Blog Post 10 -->
+        <div class="content-box">
+            <h3>Trusting the Process: Why Delegation Requires a Leap</h3>
+            <p>Delegating to a virtual assistant may feel risky, but it often leads to remarkable growth in personal productivity and organizational efficiency. As you let go and trust capable support, your energy is freed up for innovation and leadership.</p>
+            <p>Read more: <a href="https://smartvirtualassistants.com/" target="_blank" style="color: var(--metallic-gold);">Smart Virtual Assistants</a></p>
+        </div>
+        
+        <!-- New Blog Post: How a Virtual Assistant Can Improve Your Health and Wellness -->
+        <div class="content-box" id="health-wellness">
+            <h3>How a Virtual Assistant Can Improve Your Health and Wellness</h3>
+            <p>In today's fast-paced world, it's easy to become overwhelmed with daily tasks, especially when you're juggling work, personal life, and self-care. This is where a Virtual Assistant (VA) can make a significant impact on your health and wellness.</p>
+            
+            <h4>1. Reduce Stress and Overwhelm</h4>
+            <p>Managing multiple tasks can be stressful, but with a VA by your side, you can delegate administrative duties, allowing you to focus on what truly matters. No more feeling bogged down by emails, scheduling, or other time-consuming tasks. A VA helps you regain control and reduce stress, leading to a calmer, more balanced lifestyle. (American Psychological Association, 2021)</p>
+            
+            <h4>2. Free Up Time for Self-Care</h4>
+            <p>Time is one of the most valuable assets. When you free up time by delegating tasks to a VA, you can invest in your well-being. Whether it's exercising, meditating, cooking nutritious meals, or simply taking a break, a VA allows you to prioritize your health without feeling guilty about unfinished work. (Harvard Health Publishing, 2020)</p>
+            
+            <h4>3. Achieve a Better Work-Life Balance</h4>
+            <p>Work-life balance is essential for mental and physical health. A VA helps you manage your workload efficiently, so you're not sacrificing your personal time. With fewer worries about work, you can enjoy more quality time with loved ones, relax, and recharge, which ultimately improves your overall health and happiness. (Psychology Today, 2019)</p>
+            
+            <h4>4. Boost Your Productivity</h4>
+            <p>Having a VA on your team allows you to focus on the tasks that only you can do. By offloading routine administrative duties, you'll be able to achieve more in less time, reducing stress and mental fatigue. This increased productivity leads to more satisfaction in both your professional and personal life. (Forbes, 2021)</p>
+            
+            <h4>5. Support Your Mental Health</h4>
+            <p>Mental wellness is just as important as physical health. A VA can help create a healthy work environment by streamlining tasks and reducing your cognitive load. With fewer things to worry about, you can maintain a clearer mind, reduce anxiety, and improve your overall mental well-being. (National Institute of Mental Health, 2020)</p>
+            
+            <h4>References:</h4>
+            <ul>
+                <li>American Psychological Association. (2021). Stress in America: The State of Our Nation. https://www.apa.org/news/press/releases/stress/2021/state-nation</li>
+                <li>Harvard Health Publishing. (2020). The Importance of Time for Self-Care. https://www.health.harvard.edu</li>
+                <li>Psychology Today. (2019). Work-Life Balance and Its Impact on Your Health. https://www.psychologytoday.com</li>
+                <li>Forbes. (2021). Boosting Productivity with Virtual Assistants. https://www.forbes.com</li>
+                <li>National Institute of Mental Health. (2020). Mental Health and Wellness. https://www.nimh.nih.gov</li>
+            </ul>
+        </div>
+        
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Book Your Free Consultation to Discuss Delegation Strategies</a>
+    </section>
+    
+    <!-- Testimonials Section - Updated with Custom Form -->
+    <section id="testimonials">
+        <h2>Client Testimonials</h2>
+        
+        <div class="content-box testimonial-intro">
+            <h3>Love What We Achieved Together?</h3>
+            <p>Your success story is my best advertisement. Nothing makes me happier than hearing how our work made a difference for you.</p>
+            <p>If you enjoyed working together, I'd be truly grateful if you could take just a minute to share your experience. Your words help inspire trust and let others see what's possible when we team up.</p>
+        </div>
+        
+        <div class="content-box">
+            <h3 class="text-center">Share Your Feedback</h3>
+            <p class="text-center">Leave your testimonial below — it only takes a moment! Your review will be posted shortly after approval.</p>
+            
+            <!-- Custom Testimonial Form -->
+            <form id="testimonialForm" class="testimonial-form">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Your Rating</label>
+                    <div class="rating-container">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1">★</label>
+                </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Testimonial</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="gold-button center-button">Submit Testimonial</button>
+            </form>
+            
+            <div class="form-status" id="formStatus"></div>
+            
+            <!-- Testimonials list -->
+            <div id="testimonial-list">
+                <div class="testimonial-loading">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                    <p>Loading testimonials...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-box testimonial-cta">
+            <h3>Ready to Create Your Success Story?</h3>
+            <p>Let's work together to achieve your business goals and add your testimonial to this page!</p>
+            <a href="极速赛车开奖直播历史记录" class="gold-button center-button">Start Your Journey Today</a>
+        </div>
+    </section>
+    
+    <!-- NEW: Cyber Safety & Data Protection Section -->
+    <section id="cyber-safety">
+        <h2>Cyber Safety & Data Protection</h2>
+        <div class="content-box">
+            <p>Your security is my priority. In today's digital landscape, protecting your information is not just a feature—it's a fundamental part of my service commitment to you.</p>
+        </div>
+        
+        <div class="cyber-container">
+            <div class="cyber-box">
+                <h3 class="cyber-title">Why Cyber Safety Matters</h3>
+                <p>In today's digital world, business growth depends on trust. Clients share sensitive information every day—emails, logins, files, and confidential strategies. Without proper safeguards, that trust can be at risk. My commitment is clear: when you work with me, your data and privacy are always protected with industry-standard security practices.</p>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">Safe Browsing on This Website</h3>
+                <p>Your visit here is fully secure. This site uses encrypted HTTPS connections, so any data you send (like filling out forms) is safe in transit. No third-party trackers are installed, and your information will never be sold or misused. Browsing my site is private, safe, and worry-free.</p>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">How to Recognize Phishing Emails</h3>
+                <p>Phishing attacks are one of the biggest threats online. To protect you and your business, here are clear signs to watch out for:</p>
+                <ul>
+                    <li>Emails with urgent scare tactics ("Your account will be closed today!").</li>
+                    <li>Suspicious sender addresses that look almost—but not exactly—like real ones.</li>
+                    <li>Poor grammar, misspellings, or generic greetings ("Dear Customer").</li>
+                    <li>Unusual links or attachments asking you to log in or download something.</li>
+                    <li>Requests for confidential data such as passwords, bank details, or security codes.</li>
+                </ul>
+                <p>If you receive an email like this, do not click anything. Report it immediately to your provider or security team.</p>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">My Cybersecurity Standards</h3>
+                <p>To keep every client safe, I strictly follow these measures:</p>
+                <ul>
+                    <li>Use of password managers (LastPass, Bitwarden) to prevent exposed logins.</li>
+                    <li>Mandatory Two-Factor Authentication (2FA) for sensitive accounts.</li>
+                    <li>Encrypted communication through Slack, Teams, or secure email.</li>
+                    <li>Cloud file sharing only via trusted platforms (Google Drive, OneDrive, Dropbox).</li>
+                    <li>Zero tolerance for unsecured storage or sharing.</li>
+                </ul>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">Secure Client Onboarding Process</h3>
+                <p>A step-by-step approach to ensuring your data remains protected from day one:</p>
+                <ol>
+                    <li><strong>Confidentiality Agreement</strong> - We begin by signing an NDA to protect your sensitive information.</li>
+                    <li><strong>Password Manager Access</strong> - You share access securely using tools like LastPass or Bitwarden, so raw passwords remain hidden.</li>
+                    <li><strong>Safe Communication Setup</strong> - We agree on encrypted, reliable platforms—Slack, Teams, or secure email.</li>
+                    <li><strong>Encrypted File Sharing</strong> - Documents are shared only via secure, cloud-based drives with restricted permissions.</li>
+                    <li><strong>Two-Factor Authentication (2FA)</strong> - Every login is reinforced with 2FA for extra protection.</li>
+                    <li><strong>Access Reviews</strong> - I periodically check permissions and remove outdated accounts to prevent risk.</li>
+                    <li><strong>Active Monitoring</strong> - I monitor unusual login attempts or phishing risks and alert you right away.</li>
+                </ol>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">Ongoing Security Support</h3>
+                <p>Cyber safety isn't a one-time setup—it's a daily practice. I keep updated with cybersecurity best practices to protect both you and your business. If any suspicious activity arises, I act fast to minimize impact and secure your systems.</p>
+            </div>
+            
+            <div class="cyber-box">
+                <h3 class="cyber-title">Final Assurance</h3>
+                <p>Your trust is my highest priority. By working with me, you're not just delegating tasks—you're gaining a partner who values your data as much as you do. My goal is to give you peace of mind, so you can focus on scaling your business while I safeguard the behind-the-scenes details.</p>
+            </div>
+        </div>
+        
+        <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Schedule a Consultation to Discuss Security Protocols</a>
+    </section>
+    
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="content-box">
+            <div class="faq-item">
+                <div class="faq-question">Q1: I've never worked with a VA before—what's the first step?</div>
+                <div class="faq-answer">A: We'll start with a free consultation. It's simply a conversation about your goals, challenges, and needs.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q2: What hours do you work?</div>
+                <div class="faq-answer">A: I'm based in the Philippines (UTC+8), but I adjust to overlap with your core business hours.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q3: Do you take international clients?</div>
+                <div class="faq-answer">A: Yes! I serve clients worldwide and adapt easily to different cultures and business styles.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q4: What tools do you use?</div>
+                <div class="faq-answer">A: I'm skilled in Google Workspace, MS Office, Slack, Teams, Asana, Trello, ClickUp, Canva, CapCut, Gmail, and Outlook.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q5: How do we communicate?</div>
+                <div class="faq-answer">A: Email, Slack, or quick calls—whatever works best for you. Tasks can be tracked in your preferred system.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q6: How fast do you respond?</div>
+                <div class="faq-answer">A: Urgent messages within a few hours, standard tasks within 24 hours.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q7: How do you ensure quality?</div>
+                <div class="faq-answer">A: Careful attention to detail and proactive communication. If I need clarification, I'll ask before finalizing.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q8: What do your design/video add-ons cover?</div>
+                <div class="faq-answer">A: Graphics for social media, branded documents, slides, and short-form edited videos.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q9: How do payments work?</div>
+                <div class="faq-answer">A: Via secure invoicing platforms (PayPal, Wise, or bank transfer). You'll always receive a clear invoice.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q10: What are your payment terms?</div>
+                <div class="faq-answer">A: Retainers (monthly) or per-project. Usually net-7 after invoicing.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q11: Do you require contracts?</div>
+                <div class="faq-answer">A: No long lock-ins. Start with a project or a retainer—flexible as you need.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q12: How soon can you start?</div>
+                <div class="faq-answer">A: Small tasks within 1–2 days, larger projects within a week.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q13: Is my information safe?</div>
+                <div class="faq-answer">A: Yes. I sign NDAs and keep all data confidential.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q14: How do you manage sensitive account access?</div>
+                <div class="faq-answer">A: Through password managers (LastPass, Bitwarden) and 2FA.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q15: What if I don't like the outcome?</div>
+                <div class="faq-answer">A: I offer revisions and work until it meets your expectations.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q16: Which industries do you know best?</div>
+                <div class="faq-answer">A: Coaching, consulting, digital marketing, e-commerce, and professional services.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q17: Can you set up new systems for me?</div>
+                <div class="faq-answer">A: Yes! I create order from scratch—emails, project management, workflows, and more.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q18: Do you speak other languages?</div>
+                <div class="faq-answer">A: Fluent in English and Filipino (Tagalog).</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q19: Why you, not another VA?</div>
+                <div class="faq-answer">A: I go beyond tasks. I anticipate, organize, and look for ways to save you more time.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q20: I'm ready—how do we begin?</div>
+                <div class="faq-answer">A: Easy! Book your free consultation and we'll get started.</div>
+            </div>
+            
+            <!-- Weather Widget for Roxas City -->
+            <div class="weather-widget">
+                <h3>Current Weather in Roxas City</h3>
+                <div id="weather-data">
+                    <p>Loading weather information...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="terms">
+        <h2>Terms & Conditions</h2>
+        <div class="content-box">
+            <p>At the heart of every successful partnership is clarity and trust. You need to know exactly what to expect when we work together. That's why I've built my service on a foundation of absolute professionalism, transparency, and security, ensuring you can delegate with complete confidence.</p>
+        </div>
+        
+        <div class="terms-container">
+            <div class="term-box">
+                <h3 class="term-title">1. The Client Services Agreement: Clarity from Day One</h3>
+                <p>Before any work begins, we will co-create and sign a comprehensive Client Services Agreement (CSA). This document is not fine print; it is our shared blueprint for success, designed to eliminate any ambiguity. It clearly outlines:</p>
+                <ul>
+                    <li><strong>Scope of Work:</strong> A detailed description of the specific tasks, projects, and responsibilities I will manage for you. This ensures we are perfectly aligned on expectations from the outset.</li>
+                    <li><strong>Performance Metrics:</strong> How we will measure success (e.g., inbox zero maintained by EOD each day, 24-hour response time on assigned queries).</li>
+                    <li><strong>Communication Protocols:</strong> Our preferred channels (e.e., Slack, email, Voxer), scheduled check-in times, and expected response windows for each of us.</li>
+                    <li><strong>Core Working Hours:</strong> My standard availability within Philippine Standard Time (PST), with clear guidelines for urgent requests outside these hours.</li>
+                    <li><strong>Revision Policy:</strong> The process for requesting adjustments or revisions to completed work.</li>
+                </ul>
+                <p>This agreement is a living document. We will review it regularly to ensure it evolves with your business needs.</p>
+            </div>
+            
+            <div class="term-box">
+                <h3 class="term-title">2. Financial Transparency: Simplified & Secure Billing</h3>
+                <p>There will never be any surprises or informal payment requests. My financial system is designed for simplicity and professionalism.</p>
+                <ul>
+                    <li><strong>Official Invoicing:</strong> You will receive a detailed, itemized digital invoice for each billing cycle (typically monthly or quarterly). Each invoice will clearly list the services rendered, the hours dedicated (if applicable), and the total amount due.</li>
+                    <li><strong>Secure Payment Methods:</strong> All payments are processed through secure, international platforms like Wise, PayPal, or Stripe. These channels offer buyer protection and secure transaction processing. I will never ask for a direct bank transfer or payment through an unsecured method.</li>
+                    <li><strong>Clear Payment Terms:</strong> Invoices will specify a clear due date (e.e., Net 7 or Net 15) and any late payment policies, ensuring smooth cash flow for both of us.</li>
+                    <li><strong>No Hidden Fees:</strong> The price we agree upon is the price you pay. Any potential additional costs for premium software subscriptions or other tools will be discussed and approved by you in advance.</li>
+                </ul>
+            </div>
+            
+            <div class="term-box">
+                <h3 class="term-title">3. Jurisdiction & Legal Framework: The Security of Philippine Law</h3>
+                <p>Our formal working relationship is governed by the clear and robust legal framework of the Republic of the Philippines.</p>
+                <ul>
+                    <li><strong>Professional Standards:</strong> The Philippines has a world-renowned and mature outsourcing industry. The legal system provides a strong, predictable framework for professional service contracts, protecting both the service provider and the client.</li>
+                    <li><strong>Data Privacy Compliance:</strong> I strictly adhere to the Philippine Data Privacy Act of 2012 (RA 10173), which is based on stringent international standards (like GDPR). This means your personal and business data is handled with the highest level of confidentiality and security. My systems are designed to protect your information from unauthorized access, disclosure, or misuse.</li>
+                    <li><strong>Clear Dispute Resolution:</strong> The CSA will include a clause outlining the steps for resolving any potential disputes, typically beginning with meditation and arbitration under Philippine jurisdiction. This provides a clear, fair, and professional path forward should any issues ever arise, though my primary goal is to ensure they never do.</li>
+                </ul>
+            </div>
+            
+            <div class="term-box">
+                <h3 class="term-title">4. Confidentiality & Data Security: Your Information is Protected</h3>
+                <p>Your business secrets are safe with me. From the moment we sign our agreement, you have my unwavering commitment to confidentiality.</p>
+                <ul>
+                    <li><strong>Non-Disclosure Agreement (NDA):</strong> A comprehensive mutual NDA is integrated into our Client Services Agreement. This legally binds me to protect all your proprietary information, business strategies, client lists, and any other sensitive data.</li>
+                    <li><strong>Ethical Standards:</strong> I operate with unwavering integrity. I will never use or share your information for any purpose other than fulfilling my duties to you.</li>
+                    <li><strong>Secure Tools:</strong> I use password-managed, encrypted communication and project management tools (like LastPass, Signal or standard industry platforms) to ensure all client data remains secure.</li>
+                </ul>
+            </div>
+            
+            <div class="term-box">
+                <h3 class="term-title">Your Peace of Mind is My Priority</h3>
+                <p>My goal is to remove your administrative stress, not add to it. This structured, transparent, and legally sound framework is the bedrock of my service. It allows us to build a productive, long-term partnership where you can focus on growth, knowing the operational details are handled with professionalism and integrity.</p>
+                <p>Ready to work with complete confidence?</p>
+                <a href="https://calendly.com/siasonra/choose-me-reymund-siason" class="gold-button center-button">Let's discuss your needs and review a sample agreement</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- NEW: Contact Section with Form -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="content-box text-center">
+            <p>Ready to connect and grow? Fill out the form below to get in touch with me. I'm looking forward to hearing from you and discussing how I can support your productivity.</p>
+        </div>
+        
+        <!-- Contact Form Container -->
+        <div class="contact-form-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="gold-button center-button">Send Message</button>
+            </form>
+            
+            <div class="success-message" id="successMessage">
+                ✅ Your message has been sent successfully. Thank you, <strong><span id="userName"></span></strong>! I'll get back to you soon. – Reymund's Executive Support
+            </div>
+        </div>
+        
+        <!-- Alternative Contact Method -->
+        <div class="content-box" style="margin-top: 40px; text-align: center;">
+            <p>Alternatively, you can reach me directly at: <strong>siasonra@gmail.com</strong></p>
+            
+            <!-- Google Maps for Roxas City, Capiz -->
+            <h3 style="margin-top: 40px; text-align: center;">My Location for Legitimacy</h3>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d998238.4948108396!2d121.76889918359374!3d11.469980000000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a5c7c22e2baf4f%3A0x5f9aae426b206f0a!2sRoxas%20City%2C%20Capiz!5e0!3m2!1sen!2sph!4v1719330000000!5m2!1sen!2sph" allowfullscreen="" loading=" lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -1326,28 +1812,27 @@
         </div>
     </footer>
 
-    <!-- Firebase SDK (Modular v9+) -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-        import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc, serverTimestamp, orderBy, where, query } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-        
-        // Your web app's Firebase configuration
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore-compat.js"></script>
+
+    <script>
+        // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBf-qtdiwnZBEPw9CubKuOyt6z7_QbIB_8",
             authDomain: "testimonial-app-27971.firebaseapp.com",
             projectId: "testimonial-app-27971",
-            storageBucket: "testimonial-app-27971.appspot.com",
+            storageBucket: "极速赛车开奖直播历史记录",
             messagingSenderId: "688760457675",
             appId: "1:688760457675:web:7c604c4bf45337852f4e4e"
         };
         
         // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
         
         // Reference to testimonials collection
-        const testimonialsRef = collection(db, "testimonials");
+        const testimonialsRef = db.collection("testimonials");
 
         // Update clock in real-time
         function updateClock() {
@@ -1373,7 +1858,6 @@
             // Toggle mobile menu
             hamburger.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
-                hamburger.classList.toggle('active');
             });
             
             // Function to show a specific section
@@ -1386,7 +1870,6 @@
                 
                 // Close mobile menu when a link is clicked
                 navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
                 
                 // Scroll to top
                 window.scrollTo(0, 0);
@@ -1435,108 +1918,102 @@
             const successMessage = document.getElementById('successMessage');
             const userNameSpan = document.getElementById('userName');
             
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const submitBtn = contactForm.querySelector('button');
-                    const originalText = submitBtn.textContent;
-                    
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = "Sending...";
-                    
-                    // Get form data
-                    const formData = new FormData(contactForm);
-                    const firstName = formData.get('name').split(' ')[0];
-                    
-                    // Send data to Google Apps Script
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbxp-8eY78uIN6__pwka6sFaXjdnPHCAWgX1J2gcNTzZIa8oOMznEUGvuZfSC9YCN2cyAw/exec';
-                    
-                    fetch(scriptURL, { method: 'POST', body: formData })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.status === 'success') {
-                                // Show success message
-                                userNameSpan.textContent = firstName;
-                                successMessage.style.display = 'block';
-                                contactForm.reset();
-                                
-                                // Scroll to success message
-                                successMessage.scrollIntoView({ behavior: 'smooth' });
-                            } else {
-                                alert('There was an error sending your message. Please try again.');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = contactForm.querySelector('button');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Sending...";
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const firstName = formData.get('name').split(' ')[0];
+                
+                // Send data to Google Apps Script
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxp-8eY78uIN6__pwka6sFaXjdnPHCAWgX1J2gcNTzZIa8oOMznEUGvuZfSC9YCN2cyAw/exec';
+                
+                fetch(scriptURL, { method: 'POST', body: formData })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'success') {
+                            // Show success message
+                            userNameSpan.textContent = firstName;
+                            successMessage.style.display = 'block';
+                            contactForm.reset();
+                            
+                            // Scroll to success message
+                            successMessage.scrollIntoView({ behavior: 'smooth' });
+                        } else {
                             alert('There was an error sending your message. Please try again.');
-                        })
-                        .finally(() => {
-                            submitBtn.disabled = false;
-                            submitBtn.textContent = originalText;
-                        });
-                });
-            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('There was an error sending your message. Please try again.');
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    });
+            });
             
             // Testimonial form functionality
             const testimonialForm = document.getElementById('testimonialForm');
             const formStatus = document.getElementById('formStatus');
             
-            if (testimonialForm) {
-                testimonialForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
+            testimonialForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = testimonialForm.querySelector('button');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Submitting...";
+                
+                // Get form data
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const rating = document.querySelector('input[name="rating"]:checked').value;
+                const message = document.getElementById('message').value;
+                
+                // Add testimonial to Firebase
+                testimonialsRef.add({
+                    name: name,
+                    email: email,
+                    rating: parseInt(rating),
+                    message: message,
+                    approved: false,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                })
+                .then(() => {
+                    // Show success message
+                    formStatus.textContent = "✅ Thank you for your testimonial! It will be visible after approval.";
+                    formStatus.className = "form-status success";
+                    testimonialForm.reset();
+                })
+                .catch((error) => {
+                    console.error("Error adding testimonial: ", error);
+                    formStatus.textContent = "❌ There was an error submitting your testimonial. Please try again.";
+                    formStatus.className = "form-status error";
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
                     
-                    const submitBtn = testimonialForm.querySelector('button');
-                    const originalText = submitBtn.textContent;
-                    
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = "Submitting...";
-                    
-                    // Get form data
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const rating = document.querySelector('input[name="rating"]:checked').value;
-                    const message = document.getElementById('message').value;
-                    
-                    // Add testimonial to Firebase
-                    addDoc(testimonialsRef, {
-                        name: name,
-                        email: email,
-                        rating: parseInt(rating),
-                        message: message,
-                        approved: false,
-                        createdAt: serverTimestamp()
-                    })
-                    .then(() => {
-                        // Show success message
-                        formStatus.textContent = "✅ Thank you for your testimonial! It will be visible after approval.";
-                        formStatus.className = "form-status success";
-                        testimonialForm.reset();
-                    })
-                    .catch((error) => {
-                        console.error("Error adding testimonial: ", error);
-                        formStatus.textContent = "❌ There was an error submitting your testimonial. Please try again.";
-                        formStatus.className = "form-status error";
-                    })
-                    .finally(() => {
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = originalText;
-                        
-                        // Scroll to status message
-                        formStatus.scrollIntoView({ behavior: 'smooth' });
-                    });
+                    // Scroll to status message
+                    formStatus.scrollIntoView({ behavior: 'smooth' });
                 });
-            }
+            });
             
             // Admin panel toggle functionality
             const adminToggleBtn = document.getElementById('admin-toggle-btn');
             const adminPanel = document.getElementById('adminPanel');
             
-            if (adminToggleBtn) {
-                adminToggleBtn.addEventListener('click', function() {
-                    adminPanel.style.display = adminPanel.style.display === 'none' || adminPanel.style.display === '' ? 'block' : 'none';
-                });
-            }
+            adminToggleBtn.addEventListener('click', function() {
+                adminPanel.style.display = adminPanel.style.display === 'none' || adminPanel.style.display === '' ? 'block' : 'none';
+            });
         });
         
         // Function to fetch weather data for Roxas City
@@ -1549,165 +2026,162 @@
             // For demonstration, we'll use mock data since we don't have a real API key
             const weatherDataElement = document.getElementById('weather-data');
             
-            if (weatherDataElement) {
-                // Mock weather data (replace with actual API call)
-                const mockWeatherData = {
-                    temperature: 28,
-                    description: 'Partly cloudy',
-                    humidity: 78,
-                    windSpeed: 3.5
-                };
-                
-                // Display the weather information
-                weatherDataElement.innerHTML = `
-                    <p><strong>Temperature:</strong> ${mockWeatherData.temperature}°C</p>
-                    <p><strong>Conditions:</strong> ${mockWeatherData.description}</p>
-                    <p><strong>Humidity:</strong> ${mockWeatherData.humidity}%</p>
-                    <p><strong>Wind Speed:</strong> ${mockWeatherData.windSpeed} m/s</p>
-                `;
-            }
+            // Mock weather data (replace with actual API call)
+            const mockWeatherData = {
+                temperature: 28,
+                description: 'Partly cloudy',
+                humidity: 78,
+                windSpeed: 3.5
+            };
+            
+            // Display the weather information
+            weatherDataElement.innerHTML = `
+                <p><strong>Temperature:</strong> ${mockWeatherData.temperature}°C</p>
+                <p><strong>Conditions:</strong> ${mockWeatherData.description}</p>
+                <p><strong>Humidity:</strong> ${mockWeatherData.humidity}%</p>
+                <p><strong>极速赛车开奖直播历史记录:</strong> ${mockWeatherData.windSpeed} m/s</p>
+            `;
         }
         
         // Function to fetch testimonials from Firebase
-        async function fetchTestimonials() {
+        function fetchTestimonials() {
             const container = document.getElementById("testimonial-list");
             
-            if (!container) return;
-            
-            try {
-                // Get approved testimonials, ordered by creation date
-                const q = query(testimonialsRef, where("approved", "==", true), orderBy("createdAt", "desc"));
-                const querySnapshot = await getDocs(q);
-                
-                // Clear loading message
-                container.innerHTML = '';
-                
-                if (querySnapshot.empty) {
-                    container.innerHTML = '<p style="text-align: center; color: var(--metallic-gold);">No testimonials yet. Be the first to share your experience!</p>';
-                    return;
-                }
-                
-                // Process each testimonial
-                querySnapshot.forEach((docSnap) => {
-                    const data = docSnap.data();
+            // Get approved testimonials, ordered by creation date
+            testimonialsRef
+                .where("approved", "==", true)
+                .orderBy("createdAt", "desc")
+                .get()
+                .then((querySnapshot) => {
+                    // Clear loading message
+                    container.innerHTML = '';
                     
-                    const card = document.createElement("div");
-                    card.className = "testimonial-card";
-                    
-                    // Create star rating HTML
-                    let starsHtml = '';
-                    for (let i = 0; i < 5; i++) {
-                        starsHtml += i < data.rating ? '★' : '☆';
+                    if (querySnapshot.empty) {
+                        container.innerHTML = '<p style="text-align: center; color: var(--metallic-gold);">No testimonials yet. Be the first to share your experience!</p>';
+                        return;
                     }
                     
-                    card.innerHTML = `
-                        <p class="testimonial-text">"${data.message}"</p>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <p class="testimonial-author">– ${data.name}</p>
-                            <div style="color: var(--metallic-gold);">${starsHtml}</div>
-                        </div>
-                    `;
-                    
-                    container.appendChild(card);
+                    // Process each testimonial
+                    querySnapshot.forEach((doc) => {
+                        const data = doc.data();
+                        
+                        const card = document.createElement("极速赛车开奖直播历史记录");
+                        card.className = "testimonial-card";
+                        
+                        // Create star rating HTML
+                        let starsHtml = '';
+                        for (let i = 0; i < 5; i++) {
+                            starsHtml += i < data.rating ? '★' : '☆';
+                        }
+                        
+                        card.innerHTML = `
+                            <p class="testimonial-text">"${data.message}"</p>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <p class="testimonial-author">– ${data.name}</p>
+                                <div style="color: var(--metallic-gold);">${starsHtml}</div>
+                            </div>
+                        `;
+                        
+                        container.appendChild(card);
+                    });
+                })
+                .catch((极速赛车开奖直播历史记录) => {
+                    console.error("Error getting testimonials: ", error);
+                    container.innerHTML = '<p style="text-align: center; color: var(--metallic-gold);">Unable to load testimonials at this time. Please try again later.</p>';
                 });
-            } catch (error) {
-                console.error("Error getting testimonials: ", error);
-                container.innerHTML = '<p style="text-align: center; color: var(--metallic-gold);">Unable to load testimonials at this time. Please try again later.</p>';
-            }
         }
         
         // Admin login function
-        window.loginAdmin = async function() {
+        window.loginAdmin = function() {
             const password = document.getElementById('adminPass').value;
             
             // Simple password check (in production, use a more secure method)
             if (password === 'admin123') {
-                await loadAdminTestimonials();
+                loadAdminTestimonials();
             } else {
                 alert('Incorrect password');
             }
         };
         
         // Function to load testimonials for admin
-        async function loadAdminTestimonials() {
+        function loadAdminTestimonials() {
             const container = document.getElementById("adminTestimonialList");
             
-            if (!container) return;
-            
-            try {
-                // Get all testimonials, ordered by creation date
-                const q = query(testimonialsRef, orderBy("createdAt", "desc"));
-                const querySnapshot = await getDocs(q);
-                
-                container.innerHTML = '<h4>Testimonials Management</h4>';
-                
-                if (querySnapshot.empty) {
-                    container.innerHTML += '<p>No testimonials found.</p>';
-                    return;
-                }
-                
-                querySnapshot.forEach((docSnap) => {
-                    const data = docSnap.data();
-                    const id = docSnap.id;
+            // Get all testimonials, ordered by creation date
+            testimonialsRef
+                .orderBy("createdAt", "desc")
+                .get()
+                .then((querySnapshot) => {
+                    container.innerHTML = '<h4>Testimonials Management</h4>';
                     
-                    const item = document.createElement("div");
-                    item.className = "testimonial-card";
-                    item.style.marginBottom = '15px';
-                    
-                    // Create star rating HTML
-                    let starsHtml = '';
-                    for (let i = 0; i < 5; i++) {
-                        starsHtml += i < data.rating ? '★' : '☆';
+                    if (querySnapshot.empty) {
+                        container.innerHTML += '<p>No testimonials found.</p>';
+                        return;
                     }
                     
-                    item.innerHTML = `
-                        <p><strong>${data.name}</strong> (${data.email})</p>
-                        <p>${starsHtml}</p>
-                        <p>"${data.message}"</p>
-                        <p>Status: ${data.approved ? 'Approved' : 'Pending'}</p>
-                        <div class="admin-controls">
-                            ${!data.approved ? `<button class="gold-button" onclick="approveTestimonial('${id}')">Approve</button>` : ''}
-                            <button class="gold-button" style="background: #b22222;" onclick="deleteTestimonial('${id}')">Delete</button>
-                        </div>
-                    `;
-                    
-                    container.appendChild(item);
+                    querySnapshot.forEach((doc) => {
+                        const data = doc.data();
+                        const id = doc.id;
+                        
+                        const item = document.createElement("div");
+                        item.className = "testimonial-card";
+                        item.style.marginBottom = '15px';
+                        
+                        // Create star rating HTML
+                        let starsHtml = '';
+                        for (let i = 0; i < 5; i++) {
+                            starsHtml += i < data.rating ? '★' : '☆';
+                        }
+                        
+                        item.innerHTML = `
+                            <p><strong>${data.name}</strong> (${data.email})</p>
+                            <p>${starsHtml}</p>
+                            <p>"${data.message}"</p>
+                            <p>Status: ${data.approved ? 'Approved' : 'Pending'}</p>
+                            <div class="admin-controls">
+                                ${!data.approved ? `<button class="gold-button" onclick="approveTestimonial('${id}')">Approve</button>` : ''}
+                                <button class="gold-button" style="background: #b22222;" onclick="deleteTestimonial('${id}')">Delete</button>
+                            </div>
+                        `;
+                        
+                        container.appendChild(item);
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error getting testimonials: ", error);
+                    container.innerHTML = '<p>Error loading testimonials.</p>';
                 });
-            } catch (error) {
-                console.error("Error getting testimonials: ", error);
-                container.innerHTML = '<p>Error loading testimonials.</p>';
-            }
         }
         
         // Function to approve a testimonial
-        window.approveTestimonial = async function(id) {
-            try {
-                const testimonialDoc = doc(db, "testimonials", id);
-                await updateDoc(testimonialDoc, {
-                    approved: true
-                });
-                
+        window.approveTestimonial = function(id) {
+            testimonialsRef.doc(id).update({
+                approved: true
+            })
+            .then(() => {
                 alert('Testimonial approved!');
-                await loadAdminTestimonials();
-                await fetchTestimonials(); // Refresh public testimonials
-            } catch (error) {
+                loadAdminTestimonials();
+                fetchTestimonials(); // Refresh public testimonials
+            })
+            .catch((error) => {
                 console.error("Error approving testimonial: ", error);
                 alert('Error approving testimonial');
-            }
+            });
         };
         
         // Function to delete a testimonial
-        window.deleteTestimonial = async function(id) {
+        window.deleteTestimonial = function(id) {
             if (confirm('Are you sure you want to delete this testimonial?')) {
-                try {
-                    await deleteDoc(doc(db, "testimonials", id));
+                testimonialsRef.doc(id).delete()
+                .then(() => {
                     alert('Testimonial deleted!');
-                    await loadAdminTestimonials();
-                    await fetchTestimonials(); // Refresh public testimonials
-                } catch (error) {
+                    loadAdminTestimonials();
+                    fetchTestimonials(); // Refresh public testimonials
+                })
+                .catch((error) => {
                     console.error("Error deleting testimonial: ", error);
                     alert('Error deleting testimonial');
-                }
+                });
             }
         };
     </script>
